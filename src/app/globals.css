@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b3d36;
+
+  /* iD Fresh brand palette — exact values sampled from the Figma design exports */
+  --color-teal-50: #e6f2ef;
+  --color-teal-100: #cfe7e1;
+  --color-teal-500: #008070; /* primary brand teal (CTAs, timeline fill) */
+  --color-teal-600: #00695a; /* promise banner gradient start */
+  --color-teal-700: #00584c;
+  --color-teal-800: #004a41; /* newsroom card bg / promise banner gradient end */
+  --color-teal-900: #003d36; /* ink / heading text on white */
+  --color-teal-950: #093834; /* near-black nav bars (header, bottom tab bar) */
+
+  --color-lime-300: #d7e58e;
+  --color-lime-400: #bcd85f; /* ticker bg, dots, chip accents */
+  --color-lime-500: #b6d946; /* CTA buttons, active nav pill */
+
+  --color-cream: #fffdef; /* text on dark backgrounds */
+  --color-sand: #f6f2e7; /* warm neutral surfaces */
+  --color-ink-gray: #706f6a; /* muted body copy */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-50: var(--color-teal-50);
+  --color-brand-100: var(--color-teal-100);
+  --color-brand-500: var(--color-teal-500);
+  --color-brand-600: var(--color-teal-600);
+  --color-brand-700: var(--color-teal-700);
+  --color-brand-800: var(--color-teal-800);
+  --color-brand-900: var(--color-teal-900);
+  --color-brand-950: var(--color-teal-950);
+
+  --color-lime-300: var(--color-lime-300);
+  --color-lime-400: var(--color-lime-400);
+  --color-lime-500: var(--color-lime-500);
+
+  --color-cream: var(--color-cream);
+  --color-sand: var(--color-sand);
+  --color-inkgray: var(--color-ink-gray);
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-gotham);
+  --font-display: var(--font-muller);
+  --font-accent: var(--font-playfair);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Offset anchor scroll targets so they land below the sticky header */
+[data-scroll-target] {
+  scroll-margin-top: 6.5rem;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 22s linear infinite;
+}
+
+/* Hide scrollbar for horizontally-scrolling card rails, keep it scrollable */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
