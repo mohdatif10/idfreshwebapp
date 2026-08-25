@@ -28,7 +28,7 @@ export function Hero({ query, onQueryChange, onSubmit, activeFilter, onToggleFil
   }
 
   return (
-    <section className="relative overflow-hidden bg-brand-900 pb-16 pt-10 sm:pb-24 sm:pt-16">
+    <section className="relative -mt-20 overflow-hidden bg-brand-900 pb-16 pt-28 sm:-mt-24 sm:pb-24 sm:pt-32">
       {/* Real iD Fresh photography: teal-tiled kitchen backdrop with palm leaf */}
       <Image
         src="/brand/misc/hero-tile-bg.png"

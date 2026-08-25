@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import { Hanken_Grotesk, Inter, Instrument_Serif, Roboto_Mono } from "next/font/google";
 import { gothamRounded, mullerExtraBold } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -12,18 +12,25 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
   style: ["italic", "normal"],
-  weight: ["500", "600", "700"],
+  weight: ["400"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -42,11 +49,11 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${gothamRounded.variable} ${mullerExtraBold.variable} ${playfair.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${gothamRounded.variable} ${mullerExtraBold.variable} ${instrumentSerif.variable} ${robotoMono.variable} ${hankenGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-brand-900">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-20 sm:pt-24">{children}</main>
         <Footer />
         <MobileBottomNav />
       </body>

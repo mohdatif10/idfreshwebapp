@@ -47,8 +47,9 @@
   --font-sans: var(--font-inter);
   --font-heading: var(--font-gotham);
   --font-display: var(--font-muller);
-  --font-accent: var(--font-playfair);
-  --font-mono: var(--font-jetbrains);
+  --font-accent: var(--font-instrument-serif);
+  --font-mono: var(--font-roboto-mono);
+  --font-nav: var(--font-hanken);
 }
 
 html {
@@ -61,9 +62,9 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Offset anchor scroll targets so they land below the sticky header */
+/* Offset anchor scroll targets so they land below the floating glass header */
 [data-scroll-target] {
-  scroll-margin-top: 6.5rem;
+  scroll-margin-top: 6rem;
 }
 
 @keyframes marquee-scroll {

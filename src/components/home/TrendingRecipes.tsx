@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Clock3, Heart, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { RecipeCard } from "@/components/recipes/RecipeCard";
 import type { Recipe } from "@/lib/types";
 
 interface TrendingRecipesProps {
@@ -16,12 +14,7 @@ interface TrendingRecipesProps {
 }
 
 export function TrendingRecipes({ recipes, activeFilter, query, onClear }: TrendingRecipesProps) {
-  const [favorited, setFavorited] = useState<Record<string, boolean>>({});
   const hasFilter = Boolean(activeFilter || query);
-
-  function toggleFavorite(id: string) {
-    setFavorited((prev) => ({ ...prev, [id]: !prev[id] }));
-  }
 
   return (
     <section id="trending-recipes" data-scroll-target className="py-14 sm:py-20">
@@ -60,50 +53,7 @@ export function TrendingRecipes({ recipes, activeFilter, query, onClear }: Trend
 
         <div className="no-scrollbar mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
           {recipes.map((recipe) => (
-            <Link
-              key={recipe.id}
-              href={`/recipes/${recipe.slug}`}
-              className="group w-56 shrink-0 snap-start sm:w-64"
-            >
-              <div className="relative h-56 w-full overflow-hidden rounded-2xl sm:h-64">
-                {recipe.image ? (
-                  <Image
-                    src={recipe.image}
-                    alt={recipe.title}
-                    fill
-                    sizes="(min-width: 640px) 16rem, 14rem"
-                    className="object-cover"
-                  />
-                ) : (
-                  <PlaceholderImage
-                    tone={recipe.tone}
-                    emoji={recipe.emoji}
-                    className="h-full w-full"
-                    emojiClassName="text-6xl"
-                  />
-                )}
-                <button
-                  type="button"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    toggleFavorite(recipe.id);
-                  }}
-                  aria-label="Save recipe"
-                  className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/25 text-white backdrop-blur-sm transition-colors hover:bg-black/40"
-                >
-                  <Heart
-                    className={`h-4 w-4 ${favorited[recipe.id] ? "fill-lime-400 text-lime-400" : ""}`}
-                  />
-                </button>
-              </div>
-              <h3 className="mt-3 font-heading text-lg font-bold text-brand-900 group-hover:text-brand-600">
-                {recipe.title}
-              </h3>
-              <p className="mt-1 flex items-center gap-1.5 font-mono text-sm text-inkgray">
-                <Clock3 className="h-3.5 w-3.5" />
-                {recipe.minutes}m
-              </p>
-            </Link>
+            <RecipeCard key={recipe.id} recipe={recipe} className="snap-start w-56 sm:w-64" />
           ))}
         </div>
       </Container>

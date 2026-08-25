@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/ui/ComingSoon";
+import { FeaturedVideo } from "@/components/recipes/FeaturedVideo";
+import { RecipesExperience } from "@/components/recipes/RecipesExperience";
+import { getTrendingRecipes } from "@/lib/services/recipes";
 
 export const metadata: Metadata = {
   title: "Recipes | iD Fresh",
+  description:
+    "Everything you can cook with iD Fresh — idly & dosa batter, parottas, and quick everyday recipes.",
 };
 
-export default function RecipesPage() {
+export default async function RecipesPage() {
+  const recipes = await getTrendingRecipes();
+
   return (
-    <ComingSoon
-      emoji="📖"
-      label="Recipes"
-      title="The full recipe library is on its way"
-      description="We're plating up a searchable collection of everything you can cook with iD Fresh — for now, check the Trending Recipes on our homepage."
-    />
+    <>
+      <RecipesExperience recipes={recipes} />
+      <FeaturedVideo />
+    </>
   );
 }

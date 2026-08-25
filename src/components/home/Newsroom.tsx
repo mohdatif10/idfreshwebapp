@@ -50,7 +50,7 @@ export function Newsroom({ posts }: { posts: NewsPost[] }) {
             {tickerItems.map((item, index) => (
               <span key={`${item}-${index}`} className="flex items-center gap-8">
                 {item}
-                <span aria-hidden>◆</span>
+                <span aria-hidden>✦</span>
               </span>
             ))}
           </div>

@@ -25,7 +25,10 @@ export function ProductShowcase({ products }: { products: Product[] }) {
     <section id="products" data-scroll-target className="py-16 sm:py-24">
       <Container>
         <div className="text-center">
-          <h2 className="font-heading text-4xl font-extrabold text-brand-500 sm:text-5xl">
+          <h2
+            className="font-heading text-4xl font-extrabold text-brand-500 sm:text-5xl"
+            style={{ textShadow: "2px 0 0 #B6D946" }}
+          >
             Packed with goodness
           </h2>
           <p className="mt-2 font-accent italic text-xl text-inkgray sm:text-2xl">

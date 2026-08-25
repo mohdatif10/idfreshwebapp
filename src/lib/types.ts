@@ -29,6 +29,29 @@ export interface CreatorPost {
   image?: string;
 }
 
+export interface HowToStep {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+export interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
+export interface Testimonial {
+  name: string;
+  location: string;
+  quote: string;
+  timeAgo: string;
+}
+
+export interface NutritionFact {
+  label: string;
+  value: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -39,6 +62,27 @@ export interface Product {
   tone: PlaceholderTone;
   /** Real product photo path from /public/brand — falls back to the emoji/tone placeholder when absent. */
   image?: string;
+
+  // Detail-page-only fields (product listing/rail cards ignore these). Populated for
+  // products that have real detail content; other products fall back to a simple view.
+  heroImage?: string;
+  tagline?: string;
+  longDescription?: string;
+  sizes?: string[];
+  ingredientsNote?: string;
+  ingredientsList?: string[];
+  howToMake?: HowToStep[];
+  faqs?: FaqEntry[];
+  testimonials?: Testimonial[];
+  relatedProductSlugs?: string[];
+
+  // Official product-page content (sourced from the live idfreshfood.com listing).
+  keyClaims?: string[];
+  storageInstructions?: string;
+  allergenDeclaration?: string;
+  /** Reference quantity (per 100g / per serving) is NOT confirmed by the source — see nutritionNote. */
+  nutritionFacts?: NutritionFact[];
+  nutritionNote?: string;
 }
 
 export interface NewsPost {

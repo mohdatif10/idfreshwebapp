@@ -27,10 +27,5 @@ export const NEWS_POSTS: NewsPost[] = [
   },
 ];
 
-export const NEWS_TICKER = [
-  "FACTORY DOORS OPEN",
-  "45+ CITIES",
-  "100% WHEAT PAROTTAS",
-  "0% PRESERVATIVES",
-  "20+ YEARS FRESH",
-];
+// Exact copy from the Figma spec: "factory doors open ✦ 45+ cities ✦ 100% whey protein ✦"
+export const NEWS_TICKER = ["FACTORY DOORS OPEN", "45+ CITIES", "100% WHEY PROTEIN"];
