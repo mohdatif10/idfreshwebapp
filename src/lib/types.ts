@@ -17,6 +17,14 @@ export interface Recipe {
   favorited?: boolean;
   /** Real photo path from /public/brand — falls back to the emoji/tone placeholder when absent. */
   image?: string;
+
+  // Detail-page-only fields. Placeholder content today for all 8 recipes — swap for the
+  // real per-recipe copy (matching the live site's intro/ingredients/steps structure)
+  // when it's available.
+  description?: string;
+  servings?: number;
+  ingredients?: string[];
+  steps?: string[];
 }
 
 export interface CreatorPost {

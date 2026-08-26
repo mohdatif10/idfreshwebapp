@@ -13,3 +13,9 @@ export async function getTrendingRecipes(): Promise<Recipe[]> {
 export async function getRecipeBySlug(slug: string): Promise<Recipe | undefined> {
   return RECIPES.find((recipe) => recipe.slug === slug);
 }
+
+export async function getRelatedRecipes(recipe: Recipe, limit = 3): Promise<Recipe[]> {
+  return RECIPES.filter(
+    (candidate) => candidate.id !== recipe.id && candidate.tags.some((tag) => recipe.tags.includes(tag))
+  ).slice(0, limit);
+}

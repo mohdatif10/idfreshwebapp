@@ -53,6 +53,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <h1 className="mt-6 text-center font-heading text-3xl font-extrabold text-brand-900 sm:text-4xl">
           {product.name}
         </h1>
+        {product.tagline && (
+          <p className="mt-1 text-center font-accent italic text-lg text-brand-600 sm:text-xl">
+            {product.tagline}
+          </p>
+        )}
 
         <div className="relative mx-auto mt-6 aspect-square w-full max-w-sm">
           {product.heroImage ? (
@@ -74,24 +79,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
           )}
         </div>
 
-        {product.sizes && (
-          <div className="mt-6">
-            <SizeSelector sizes={product.sizes} />
-          </div>
-        )}
-
         {product.longDescription && (
           <div className="mt-8 rounded-2xl bg-brand-500 p-6 text-cream sm:p-8">
-            {product.tagline && (
-              <p className="font-accent text-center italic text-lg text-lime-300 sm:text-xl">
-                {product.tagline}
-              </p>
-            )}
-            <p className="mt-3 text-sm leading-relaxed sm:text-base">{product.longDescription}</p>
+            <p className="text-sm leading-relaxed sm:text-base">{product.longDescription}</p>
           </div>
         )}
 
         {!product.longDescription && <p className="mt-6 text-center text-inkgray">{product.description}</p>}
+
+        {product.sizes && (
+          <div className="mt-8">
+            <p className="font-heading text-sm font-bold text-brand-900">Sizes</p>
+            <div className="mt-2">
+              <SizeSelector sizes={product.sizes} />
+            </div>
+          </div>
+        )}
 
         {product.keyClaims && (
           <div className="mt-6 flex flex-wrap justify-center gap-2">

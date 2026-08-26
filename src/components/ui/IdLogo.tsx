@@ -22,11 +22,15 @@ export function IdLogo({
   tone = "white",
   markHeight = 44,
   showWordmark = true,
+  priority = false,
 }: {
   className?: string;
   tone?: "white" | "teal";
   markHeight?: number;
   showWordmark?: boolean;
+  /** Only pass for an above-the-fold instance (e.g. the header) — preloading a below-the-fold
+   * instance (e.g. the footer) triggers Next's "preloaded but not used" dev warning. */
+  priority?: boolean;
 }) {
   const logo = LOGO_SOURCES[tone];
   const textColor = tone === "white" ? "text-white" : "text-brand-500";
@@ -43,7 +47,11 @@ export function IdLogo({
         alt=""
         width={markWidth}
         height={markHeight}
-        priority
+        // Tailwind's preflight forces `height: auto` on all <img> tags, which silently
+        // overrides just one dimension of the intrinsic size Next expects — pin both via
+        // inline style (wins over any stylesheet rule) so it can't drift out of sync.
+        style={{ width: markWidth, height: markHeight }}
+        priority={priority}
       />
       {showWordmark && (
         <span

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 
 interface AccordionItem {
   title: string;
@@ -12,25 +12,22 @@ export function ProductAccordion({ items }: { items: AccordionItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-brand-100 rounded-2xl border border-brand-100">
+    <div className="flex flex-col divide-y divide-brand-100 border-t border-brand-100">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
+        const Icon = isOpen ? Minus : Plus;
         return (
           <div key={item.title}>
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              className="flex w-full items-center justify-between gap-4 py-5 text-left"
               aria-expanded={isOpen}
             >
-              <span className="font-heading text-lg font-bold text-brand-500">{item.title}</span>
-              <Plus
-                className={`h-5 w-5 shrink-0 text-brand-500 transition-transform ${
-                  isOpen ? "rotate-45" : ""
-                }`}
-              />
+              <span className="font-heading text-xl font-bold text-brand-500">{item.title}</span>
+              <Icon className="h-5 w-5 shrink-0 text-brand-500" />
             </button>
-            {isOpen && <div className="px-5 pb-5">{item.content}</div>}
+            {isOpen && <div className="pb-6">{item.content}</div>}
           </div>
         );
       })}

@@ -106,7 +106,7 @@ export const PRODUCTS: Product[] = [
         timeAgo: "1 month ago",
       },
     ],
-    relatedProductSlugs: ["rice-rava-batter", "multigrain-idly-dosa-batter"],
+    relatedProductSlugs: ["high-fibre-brown-rice-oats-batter", "rice-rava-batter"],
   },
   {
     id: "p3",

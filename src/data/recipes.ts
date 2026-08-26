@@ -2,6 +2,10 @@ import type { Recipe } from "@/lib/types";
 
 // Mock recipe catalogue. Swap for a real fetch in lib/services/recipes.ts
 // once the recipes CMS/API is ready — the shape here is the contract.
+//
+// description/servings/ingredients/steps are placeholder recipe content
+// (plausible for each dish, but not sourced from a real recipe) — swap in
+// the real copy per-recipe when it's available.
 export const RECIPES: Recipe[] = [
   {
     id: "r1",
@@ -12,6 +16,26 @@ export const RECIPES: Recipe[] = [
     emoji: "🌯",
     tone: "moss",
     image: "/brand/recipes/parotta-shawarma-wrap.png",
+    description:
+      "Malabar parotta stands in for pita in this quick shawarma-style wrap — crisp, flaky layers rolled around spiced protein and a cool yoghurt dip.",
+    servings: 2,
+    ingredients: [
+      "4 iD Malabar Parottas",
+      "300g chicken or paneer, sliced",
+      "1 tsp shawarma spice mix",
+      "2 tbsp yoghurt",
+      "1 tbsp garlic paste",
+      "1 onion, thinly sliced",
+      "1 cup shredded lettuce",
+      "Lemon wedges, to serve",
+    ],
+    steps: [
+      "Marinate the chicken or paneer in yoghurt, garlic paste, and shawarma spice for 15 minutes.",
+      "Heat a pan and cook the marinated protein until charred at the edges, about 8 minutes.",
+      "Warm the iD Malabar Parottas on a tawa until soft and pliable.",
+      "Lay each parotta flat, layer with lettuce, sliced onion, and the cooked filling.",
+      "Roll tightly, slice in half, and serve hot with lemon wedges.",
+    ],
   },
   {
     id: "r2",
@@ -22,6 +46,26 @@ export const RECIPES: Recipe[] = [
     emoji: "🌮",
     tone: "amber",
     image: "/brand/recipes/paneer-dosa-tacos.png",
+    description:
+      "iD Idli & Dosa Batter cooked into taco-shaped shells and filled with spiced paneer bhurji — a fun, handheld twist on dosa night.",
+    servings: 4,
+    ingredients: [
+      "2 cups iD Idli & Dosa Batter",
+      "200g paneer, crumbled",
+      "1 onion, finely chopped",
+      "1 tomato, finely chopped",
+      "1/2 tsp turmeric",
+      "1 tsp chilli powder",
+      "2 tbsp coriander, chopped",
+      "Coconut chutney, to serve",
+    ],
+    steps: [
+      "Sauté onion until translucent, then add tomato, turmeric, and chilli powder.",
+      "Stir in the crumbled paneer and cook for 5 minutes; finish with chopped coriander.",
+      "Pour a ladle of iD batter onto a hot tawa and spread thin like a regular dosa.",
+      "While still soft, drape the dosa over a rolling pin or taco stand so it sets into a taco shape as it crisps.",
+      "Fill each dosa taco with the paneer mixture and serve with coconut chutney.",
+    ],
   },
   {
     id: "r3",
@@ -32,6 +76,25 @@ export const RECIPES: Recipe[] = [
     emoji: "🍧",
     tone: "teal",
     image: "/brand/recipes/dosa-cones.png",
+    description:
+      "A single giant dosa rolled into a cone and piled with a fresh, crunchy filling — street-food style and ready in 15 minutes.",
+    servings: 2,
+    ingredients: [
+      "1.5 cups iD Idli & Dosa Batter",
+      "1 carrot, grated",
+      "1/2 cup cabbage, shredded",
+      "1 tbsp mayonnaise",
+      "1 tsp chilli sauce",
+      "Sev, for topping",
+      "Sambar and chutney, to serve",
+    ],
+    steps: [
+      "Toss the grated carrot and cabbage with mayonnaise and chilli sauce.",
+      "Spread a large, thin dosa on a hot tawa using iD batter and cook until crisp.",
+      "While warm and pliable, roll the dosa into a cone shape.",
+      "Fill the cone with the slaw and top with sev.",
+      "Serve immediately with sambar and chutney on the side.",
+    ],
   },
   {
     id: "r4",
@@ -41,6 +104,23 @@ export const RECIPES: Recipe[] = [
     tags: ["idly & dosa", "protein", "quick"],
     emoji: "🥣",
     tone: "clay",
+    description:
+      "Steamed iD idlis broken into a bowl with a boiled-egg and sprouts topping — a fast, high-protein breakfast that's still comfort food.",
+    servings: 1,
+    ingredients: [
+      "4 iD Idlis, steamed",
+      "1/2 cup boiled sprouts",
+      "1 boiled egg, sliced (optional)",
+      "1 tbsp peanut chutney podi",
+      "1 tsp ghee",
+      "Coriander, to garnish",
+    ],
+    steps: [
+      "Steam the idlis as per pack instructions and roughly break into bite-sized pieces.",
+      "Warm the sprouts in a pan for 2 minutes.",
+      "Layer the broken idlis in a bowl, top with sprouts and sliced egg.",
+      "Drizzle with ghee, sprinkle podi over the top, and finish with coriander.",
+    ],
   },
   {
     id: "r5",
@@ -50,6 +130,24 @@ export const RECIPES: Recipe[] = [
     tags: ["parota"],
     emoji: "🍕",
     tone: "lime",
+    description:
+      "A flaky iD Malabar Parotta base, loaded with sauce, cheese, and toppings and finished under the grill — pizza night, dosa-kitchen style.",
+    servings: 2,
+    ingredients: [
+      "2 iD Malabar Parottas",
+      "4 tbsp pizza sauce",
+      "1 cup mozzarella, grated",
+      "1/2 capsicum, sliced",
+      "1/4 red onion, sliced",
+      "Chilli flakes and oregano, to finish",
+    ],
+    steps: [
+      "Lightly toast the parottas on a dry tawa on both sides.",
+      "Spread pizza sauce over each parotta and scatter with mozzarella.",
+      "Top with capsicum and onion.",
+      "Grill or bake at 200°C for 6-8 minutes until the cheese melts and bubbles.",
+      "Finish with chilli flakes and oregano before slicing.",
+    ],
   },
   {
     id: "r6",
@@ -59,6 +157,23 @@ export const RECIPES: Recipe[] = [
     tags: ["idly & dosa", "protein", "quick"],
     emoji: "🥞",
     tone: "sand",
+    description:
+      "A thin, protein-rich dosa made by folding sprouted moong into iD batter — light, savoury, and on the table in 10 minutes.",
+    servings: 2,
+    ingredients: [
+      "1.5 cups iD Idli & Dosa Batter",
+      "1/2 cup sprouted moong, coarsely blended",
+      "1 green chilli, finely chopped",
+      "1/2 tsp cumin seeds",
+      "Salt, to taste",
+      "Oil, for cooking",
+    ],
+    steps: [
+      "Mix the blended sprouted moong into the iD batter along with chilli, cumin, and salt.",
+      "Heat a tawa and pour a ladle of the mixture, spreading thin.",
+      "Drizzle oil around the edges and cook until golden and crisp.",
+      "Flip briefly, then serve hot with chutney.",
+    ],
   },
   {
     id: "r7",
@@ -69,6 +184,25 @@ export const RECIPES: Recipe[] = [
     emoji: "🥚",
     tone: "amber",
     image: "/brand/recipes/paneer-masala-dosa.png",
+    description:
+      "The classic masala dosa, reimagined with a spiced paneer bhurji instead of potato — same crunch, extra protein.",
+    servings: 2,
+    ingredients: [
+      "2 cups iD Idli & Dosa Batter",
+      "200g paneer, crumbled",
+      "1 onion, sliced",
+      "1 tsp mustard seeds",
+      "1 sprig curry leaves",
+      "1/2 tsp turmeric",
+      "Sambar and chutney, to serve",
+    ],
+    steps: [
+      "Temper mustard seeds and curry leaves in oil, then add sliced onion and cook until soft.",
+      "Stir in turmeric and crumbled paneer, cooking for 5 minutes to make the filling.",
+      "Spread a thin dosa on a hot tawa using iD batter.",
+      "Once crisp underneath, spoon the paneer filling onto one half and fold over.",
+      "Serve hot with sambar and chutney.",
+    ],
   },
   {
     id: "r8",
@@ -78,6 +212,16 @@ export const RECIPES: Recipe[] = [
     tags: ["idly & dosa", "quick"],
     emoji: "⏱️",
     tone: "teal",
+    description:
+      "No fermenting, no waiting — iD batter straight from the pack to a crisp dosa in five minutes flat.",
+    servings: 1,
+    ingredients: ["1 cup iD Idli & Dosa Batter", "1 tsp oil", "Chutney, to serve"],
+    steps: [
+      "Heat a non-stick tawa on medium-high heat.",
+      "Pour a ladle of iD batter and spread quickly into a thin circle.",
+      "Drizzle oil around the edges and cook for 2 minutes until the base turns golden.",
+      "Fold in half and serve immediately with chutney.",
+    ],
   },
 ];
 
