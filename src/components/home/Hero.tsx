@@ -28,31 +28,24 @@ export function Hero({ query, onQueryChange, onSubmit, activeFilter, onToggleFil
   }
 
   return (
-    <section className="relative -mt-20 overflow-hidden bg-brand-900 pb-16 pt-28 sm:-mt-24 sm:pb-24 sm:pt-32">
-      {/* Real iD Fresh photography: teal-tiled kitchen backdrop with palm leaf */}
+    <section className="relative -mt-20 flex min-h-[34rem] items-center overflow-hidden bg-brand-900 py-24 sm:-mt-24 sm:min-h-[42rem] sm:py-28">
+      {/* Real iD Fresh photography: paneer dosa wrap on teal tile with palm leaf */}
       <Image
-        src="/brand/misc/hero-tile-bg.png"
+        src="/brand/misc/home-hero.jpg"
         alt=""
         aria-hidden
         fill
         priority
         sizes="100vw"
-        className="scale-105 object-cover blur-[1.5px]"
+        className="object-cover"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-linear-to-b from-brand-900/80 via-brand-900/70 to-brand-900/90"
+        className="absolute inset-0 bg-linear-to-b from-brand-900/85 via-brand-900/55 to-brand-900/90"
       />
 
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
-          <div
-            aria-hidden
-            className="mx-auto mb-8 flex h-56 w-56 items-center justify-center rounded-full bg-linear-to-br from-sand via-amber-100 to-stone-300 text-8xl shadow-2xl sm:h-64 sm:w-64"
-          >
-            🥞
-          </div>
-
           <h1 className="font-display text-4xl font-normal leading-[1.05] text-cream sm:text-5xl">
             what do you want to cook{" "}
             <span className="font-accent italic font-medium text-cream">today?</span>

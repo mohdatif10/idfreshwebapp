@@ -3,31 +3,45 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { OUR_FOOD_CATEGORIES } from "@/data/our-food-categories";
 import { getFeaturedProducts } from "@/lib/services/products";
 
 export const metadata: Metadata = {
-  title: "Our Foods | iD Fresh",
+  title: "Our Food | iD Fresh",
   description: "Batters, parottas, coffee decoctions and more — 100% authentic, zero shortcuts.",
 };
 
-export default async function ProductsPage() {
+export default async function OurFoodPage() {
   const products = await getFeaturedProducts();
 
   return (
     <div className="py-12 sm:py-16">
       <Container>
         <h1 className="text-center font-heading text-4xl font-extrabold text-brand-900 sm:text-5xl">
-          Our Foods
+          Our Food
         </h1>
         <p className="mx-auto mt-2 max-w-md text-center font-accent italic text-lg text-inkgray sm:text-xl">
           discover more about our fresh food
         </p>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
+        {/* Jumps to each category's own landing page (default product + pill switcher). */}
+        <div className="no-scrollbar mt-8 flex gap-2 overflow-x-auto pb-1">
+          {OUR_FOOD_CATEGORIES.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/our-food/${c.slug}`}
+              className="shrink-0 whitespace-nowrap rounded-full bg-brand-50 px-4 py-2 font-nav text-xs font-bold text-brand-800 transition-colors hover:bg-brand-100"
+            >
+              {c.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
           {products.map((product) => (
             <Link
               key={product.id}
-              href={`/products/${product.slug}`}
+              href={`/our-food/${product.slug}`}
               className="rounded-2xl border border-brand-100 bg-white p-4 transition-colors hover:bg-brand-50"
             >
               <div className="relative aspect-square w-full">

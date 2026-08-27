@@ -81,7 +81,7 @@ export function Newsroom({ posts }: { posts: NewsPost[] }) {
               />
             </Link>
             <Link
-              href="/whats-new"
+              href="/our-food/whats-new"
               className="flex items-center justify-center rounded-3xl bg-lime-400 px-6 py-6 font-heading text-lg font-bold text-brand-900 transition-colors hover:bg-lime-300"
             >
               browse all →

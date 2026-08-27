@@ -80,6 +80,12 @@ body {
   animation: marquee-scroll 22s linear infinite;
 }
 
+/* Much wider content (image tickers) needs a longer duration to scroll at a
+   comparable, readable px/sec speed instead of the shorter text ticker's pace. */
+.animate-marquee-slow {
+  animation: marquee-scroll 90s linear infinite;
+}
+
 /* Hide scrollbar for horizontally-scrolling card rails, keep it scrollable */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

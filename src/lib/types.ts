@@ -70,6 +70,8 @@ export interface Product {
   tone: PlaceholderTone;
   /** Real product photo path from /public/brand — falls back to the emoji/tone placeholder when absent. */
   image?: string;
+  /** Slug matching data/our-food-categories.ts — powers /our-food?category=<slug> filtering. */
+  category: string;
 
   // Detail-page-only fields (product listing/rail cards ignore these). Populated for
   // products that have real detail content; other products fall back to a simple view.
@@ -110,8 +112,15 @@ export interface JobOpening {
   type: string;
 }
 
+export interface NavChild {
+  label: string;
+  href: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;
   icon: string;
+  /** Dropdown (desktop) / expandable section (mobile drawer) sub-links, per the site map. */
+  children?: NavChild[];
 }

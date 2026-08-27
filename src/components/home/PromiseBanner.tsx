@@ -1,12 +1,17 @@
-import { Ban, Clock3, Droplet, Leaf } from "lucide-react";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
-const PROMISES = [
-  { label: "No added preservatives", icon: Ban },
-  { label: "RO Purified water", icon: Droplet },
-  { label: "Traditionally prepared", icon: Clock3 },
-  { label: "Premium ingredients", icon: Leaf },
+// Real dimensions of the ticker creative — used to keep the intrinsic aspect
+// ratio correct while it's scaled down responsively via CSS height.
+const TICKER_WIDTH = 7134;
+const TICKER_HEIGHT = 1184;
+
+const PROMISE_CLAIMS = [
+  "No added preservatives",
+  "RO purified water",
+  "Traditionally prepared",
+  "Premium ingredients",
 ];
 
 export function PromiseBanner() {
@@ -23,20 +28,28 @@ export function PromiseBanner() {
             four things we never skip
           </p>
         </div>
+      </Container>
 
-        <div className="mt-14 flex flex-col gap-6 sm:gap-8">
-          {PROMISES.map((promise) => (
-            <div key={promise.label} className="flex items-center gap-4 sm:gap-6">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-lime-400 text-lime-400 sm:h-20 sm:w-20">
-                <promise.icon className="h-6 w-6 sm:h-9 sm:w-9" strokeWidth={1.75} />
-              </span>
-              <h3 className="font-display text-2xl font-normal uppercase leading-none tracking-tight text-cream sm:text-5xl">
-                {promise.label}
-              </h3>
-            </div>
+      {/* Real claims text is duplicated here for a11y/SEO — the ticker graphic below is decorative. */}
+      <p className="sr-only">{PROMISE_CLAIMS.join(", ")}</p>
+
+      <div className="mt-14 overflow-hidden" aria-hidden>
+        <div className="flex w-max animate-marquee-slow items-center">
+          {[0, 1].map((copy) => (
+            <Image
+              key={copy}
+              src="/brand/misc/promise-ticker.png"
+              alt=""
+              width={TICKER_WIDTH}
+              height={TICKER_HEIGHT}
+              className="h-28 w-auto shrink-0 sm:h-40"
+              priority={copy === 0}
+            />
           ))}
         </div>
+      </div>
 
+      <Container>
         <p className="mt-14 text-center font-accent italic text-2xl text-cream sm:text-3xl">
           love &amp; nothing else.
         </p>

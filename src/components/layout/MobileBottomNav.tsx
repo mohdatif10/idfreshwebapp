@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ICON_MAP } from "@/components/ui/icon-map";
-import { PRIMARY_NAV } from "@/data/nav";
+import { BOTTOM_NAV } from "@/data/nav";
 
 export function MobileBottomNav() {
   const pathname = usePathname();
@@ -14,7 +14,7 @@ export function MobileBottomNav() {
       className="fixed inset-x-3 bottom-3 z-50 flex items-center justify-between gap-1 rounded-full border border-white/10 bg-brand-950/95 px-2 py-2 shadow-lg shadow-black/30 backdrop-blur-md md:hidden"
       style={{ paddingBottom: "calc(env(safe-area-inset-bottom) + 0.5rem)" }}
     >
-      {PRIMARY_NAV.map((item) => {
+      {BOTTOM_NAV.map((item) => {
         const Icon = ICON_MAP[item.icon];
         const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
         return (

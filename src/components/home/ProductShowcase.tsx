@@ -106,7 +106,7 @@ export function ProductShowcase({ products }: { products: Product[] }) {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <Button href="/products" variant="primary" className="bg-brand-600 text-lime-300 hover:bg-brand-700">
+          <Button href="/our-food" variant="primary" className="bg-brand-600 text-lime-300 hover:bg-brand-700">
             Explore all Products
           </Button>
         </div>

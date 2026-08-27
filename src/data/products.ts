@@ -10,6 +10,7 @@ export const PRODUCTS: Product[] = [
     emoji: "🥞",
     tone: "amber",
     image: "/brand/products/high-fibre-batter.png",
+    category: "batter",
   },
   {
     id: "p2",
@@ -18,6 +19,7 @@ export const PRODUCTS: Product[] = [
     description: "Soft idlis, crispy dosas — the one that started it all.",
     emoji: "🍽️",
     tone: "lime",
+    category: "batter",
     image: "/brand/products/idly-dosa-batter-thumb.png",
     heroImage: "/brand/products/idly-dosa-batter-hero.png",
     tagline: "Your very own bite-sized clouds of happiness",
@@ -116,6 +118,7 @@ export const PRODUCTS: Product[] = [
     badge: "Multigrain",
     emoji: "🌾",
     tone: "teal",
+    category: "batter",
   },
   {
     id: "p4",
@@ -124,6 +127,7 @@ export const PRODUCTS: Product[] = [
     description: "Flaky, buttery layers — ready from freezer to tawa in minutes.",
     emoji: "🫓",
     tone: "clay",
+    category: "parota",
   },
   {
     id: "p5",
@@ -133,6 +137,7 @@ export const PRODUCTS: Product[] = [
     badge: "New",
     emoji: "☕",
     tone: "sand",
+    category: "coffee",
   },
   {
     id: "p6",
@@ -141,6 +146,7 @@ export const PRODUCTS: Product[] = [
     description: "Light, airy dosas with the signature crunch of rice rava.",
     emoji: "🍚",
     tone: "clay",
+    category: "batter",
     image: "/brand/products/rice-rava-batter.png",
   },
 ];
