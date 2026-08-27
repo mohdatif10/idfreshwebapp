@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { Search, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { RecipeCard } from "@/components/recipes/RecipeCard";
 import { RecipeRail } from "@/components/recipes/RecipeRail";
@@ -22,7 +24,19 @@ function pickBySlug(recipes: Recipe[], slugs: string[]) {
 }
 
 export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
+  const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState(RECIPE_CATEGORIES[0].label);
+  const [query, setQuery] = useState(() => searchParams.get("q") ?? "");
+
+  // A header search (from any page) lands here via ?q= — sync it in whenever
+  // it changes, including repeat searches while already on this page.
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q) {
+      setQuery(q);
+      document.getElementById("all-recipes")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [searchParams]);
 
   const related = useMemo(() => pickBySlug(recipes, RELATED_SLUGS), [recipes]);
   const trending = useMemo(() => pickBySlug(recipes, TRENDING_SLUGS), [recipes]);
@@ -30,9 +44,16 @@ export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
 
   const filtered = useMemo(() => {
     const category = RECIPE_CATEGORIES.find((c) => c.label === activeCategory);
-    if (!category?.tag) return recipes;
-    return recipes.filter((recipe) => recipe.tags.includes(category.tag as string));
-  }, [recipes, activeCategory]);
+    let list = recipes;
+    if (category?.tag) {
+      list = list.filter((recipe) => recipe.tags.includes(category.tag as string));
+    }
+    const q = query.trim().toLowerCase();
+    if (q) {
+      list = list.filter((recipe) => `${recipe.title} ${recipe.tags.join(" ")}`.toLowerCase().includes(q));
+    }
+    return list;
+  }, [recipes, activeCategory, query]);
 
   function handleCategoryClick(label: string) {
     setActiveCategory(label);
@@ -53,9 +74,32 @@ export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
         <div className="absolute inset-0 bg-linear-to-t from-brand-900/70 via-transparent to-brand-900/20" />
 
         <Container className="relative flex h-full flex-col justify-between pb-6 pt-24 sm:pt-28">
-          <h1 className="font-heading text-4xl font-extrabold text-cream drop-shadow-sm sm:text-5xl">
-            Recipes
-          </h1>
+          <div>
+            <h1 className="font-heading text-4xl font-extrabold text-cream drop-shadow-sm sm:text-5xl">
+              Recipes
+            </h1>
+
+            <div className="mt-4 flex items-center gap-2 rounded-full bg-white p-2 pl-5 shadow-xl sm:max-w-sm">
+              <Search className="h-5 w-5 shrink-0 text-brand-500" />
+              <input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                type="text"
+                placeholder="search recipes..."
+                className="w-full bg-transparent font-accent italic text-brand-900 placeholder:text-brand-900/40 focus:outline-none"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Clear search"
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-brand-400 transition-colors hover:text-brand-700"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+          </div>
 
           <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0">
             {RECIPE_CATEGORIES.map((category) => {

@@ -19,7 +19,7 @@ export function PromiseBanner() {
     <section
       id="promise"
       data-scroll-target
-      className="bg-linear-to-br from-brand-600 to-brand-800 py-16 sm:py-24"
+      className="bg-linear-to-br from-brand-600 to-brand-800 py-10 sm:py-16"
     >
       <Container>
         <div className="text-center">
@@ -33,7 +33,7 @@ export function PromiseBanner() {
       {/* Real claims text is duplicated here for a11y/SEO — the ticker graphic below is decorative. */}
       <p className="sr-only">{PROMISE_CLAIMS.join(", ")}</p>
 
-      <div className="mt-14 overflow-hidden" aria-hidden>
+      <div className="mt-10 overflow-hidden" aria-hidden>
         <div className="flex w-max animate-marquee-slow items-center">
           {[0, 1].map((copy) => (
             <Image
@@ -42,7 +42,7 @@ export function PromiseBanner() {
               alt=""
               width={TICKER_WIDTH}
               height={TICKER_HEIGHT}
-              className="h-28 w-auto shrink-0 sm:h-40"
+              className="h-64 w-auto shrink-0 sm:h-96"
               priority={copy === 0}
             />
           ))}
@@ -50,7 +50,7 @@ export function PromiseBanner() {
       </div>
 
       <Container>
-        <p className="mt-14 text-center font-accent italic text-2xl text-cream sm:text-3xl">
+        <p className="mt-10 text-center font-accent italic text-2xl text-cream sm:text-3xl">
           love &amp; nothing else.
         </p>
       </Container>

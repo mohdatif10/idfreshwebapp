@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { FeaturedVideo } from "@/components/recipes/FeaturedVideo";
 import { RecipesExperience } from "@/components/recipes/RecipesExperience";
 import { getTrendingRecipes } from "@/lib/services/recipes";
@@ -14,7 +15,9 @@ export default async function RecipesPage() {
 
   return (
     <>
-      <RecipesExperience recipes={recipes} />
+      <Suspense fallback={null}>
+        <RecipesExperience recipes={recipes} />
+      </Suspense>
       <FeaturedVideo />
     </>
   );

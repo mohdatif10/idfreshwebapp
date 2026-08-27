@@ -21,11 +21,11 @@ export function MobileBottomNav() {
           <Link
             key={item.href}
             href={item.href}
-            className={`flex flex-1 items-center justify-center gap-1.5 rounded-full px-2 py-2.5 font-nav text-xs font-bold transition-colors ${
-              isActive ? "bg-lime-500 text-brand-900" : "text-white/80 hover:text-lime-300"
+            className={`flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2.5 font-nav text-xs font-bold transition-all ${
+              isActive ? "flex-[1.8] bg-lime-500 text-brand-900" : "flex-1 text-white/80 hover:text-lime-300"
             }`}
           >
-            <Icon className="h-4 w-4" strokeWidth={2.25} />
+            <Icon className="h-4 w-4 shrink-0" strokeWidth={2.25} />
             {isActive && (
               <span className={item.label === "Home" ? "" : "lowercase"}>{item.label}</span>
             )}

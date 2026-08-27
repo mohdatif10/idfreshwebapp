@@ -17,9 +17,16 @@ export const gothamRounded = localFont({
   ],
 });
 
-// Muller ExtraBold = reserved for the largest display headline moments.
-export const mullerExtraBold = localFont({
-  variable: "--font-muller",
+// Amino = the largest display headline moments (e.g. the homepage hero H1) —
+// confirmed against the real Figma layer properties (Font: Amino), not the
+// brand-guideline PDF's Muller ExtraBold, which turned out to not match what
+// the actual mockups use here. Bold added alongside Regular for a heavier
+// look on the hero specifically (design call, not a Figma-spec'd weight).
+export const amino = localFont({
+  variable: "--font-amino",
   display: "swap",
-  src: [{ path: "./muller/muller-extra-bold.ttf", weight: "800", style: "normal" }],
+  src: [
+    { path: "./amino/Amino-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./amino/Amino-Bold.woff2", weight: "700", style: "normal" },
+  ],
 });

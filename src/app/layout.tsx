@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Inter, Instrument_Serif, Roboto_Mono } from "next/font/google";
-import { gothamRounded, mullerExtraBold } from "@/fonts";
+import { gothamRounded, amino } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
@@ -49,7 +49,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${gothamRounded.variable} ${mullerExtraBold.variable} ${instrumentSerif.variable} ${robotoMono.variable} ${hankenGrotesk.variable} h-full antialiased`}
+      className={`${inter.variable} ${gothamRounded.variable} ${amino.variable} ${instrumentSerif.variable} ${robotoMono.variable} ${hankenGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-brand-900">
         <Header />

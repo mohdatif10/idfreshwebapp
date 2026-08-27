@@ -46,7 +46,7 @@
 
   --font-sans: var(--font-inter);
   --font-heading: var(--font-gotham);
-  --font-display: var(--font-muller);
+  --font-display: var(--font-amino);
   --font-accent: var(--font-instrument-serif);
   --font-mono: var(--font-roboto-mono);
   --font-nav: var(--font-hanken);
@@ -81,9 +81,14 @@ body {
 }
 
 /* Much wider content (image tickers) needs a longer duration to scroll at a
-   comparable, readable px/sec speed instead of the shorter text ticker's pace. */
+   comparable, readable px/sec speed instead of the shorter text ticker's pace.
+   Tuned for the ticker rendered at h-64/sm:h-96 (PromiseBanner.tsx) — if that
+   height changes again, scale this duration by the same factor to keep the
+   px/sec scroll speed constant. A negative delay of -20% of the duration
+   starts the loop already 20% through instead of flush at translateX(0) —
+   if the duration changes, recompute the delay as -0.2 * duration to match. */
 .animate-marquee-slow {
-  animation: marquee-scroll 90s linear infinite;
+  animation: marquee-scroll 216s linear -43.2s infinite;
 }
 
 /* Hide scrollbar for horizontally-scrolling card rails, keep it scrollable */

@@ -58,7 +58,7 @@ export function Hero({ query, onQueryChange, onSubmit, activeFilter, onToggleFil
 
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
-          <h1 className="font-display text-4xl font-normal leading-[1.05] text-cream sm:text-5xl">
+          <h1 className="font-display text-4xl font-bold leading-[1.06] tracking-[-0.06em] text-cream sm:text-5xl">
             what do you want to cook{" "}
             <span className="font-accent italic font-medium text-cream">today?</span>
           </h1>
