@@ -29,15 +29,27 @@ export function Hero({ query, onQueryChange, onSubmit, activeFilter, onToggleFil
 
   return (
     <section className="relative -mt-20 flex min-h-[34rem] items-center overflow-hidden bg-brand-900 py-24 sm:-mt-24 sm:min-h-[42rem] sm:py-28">
-      {/* Real iD Fresh photography: paneer dosa wrap on teal tile with palm leaf */}
+      {/* Real iD Fresh photography: paneer dosa wrap on teal tile with palm leaf.
+          Two purpose-shot crops — portrait for narrow mobile viewports, landscape
+          for wide desktop ones — swapped by breakpoint rather than stretching one
+          crop to fit both (which is what caused the earlier edge-banding bug). */}
       <Image
-        src="/brand/misc/home-hero.jpg"
+        src="/brand/misc/home-hero-mobile.jpg"
         alt=""
         aria-hidden
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover sm:hidden"
+      />
+      <Image
+        src="/brand/misc/home-hero-desktop.jpg"
+        alt=""
+        aria-hidden
+        fill
+        priority
+        sizes="100vw"
+        className="hidden object-cover sm:block"
       />
       <div
         aria-hidden

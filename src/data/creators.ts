@@ -1,33 +1,37 @@
 import type { CreatorPost } from "@/lib/types";
 
-// The iD Creator Collective section. These three use static photos today.
-// To upgrade any of them to a self-hosted autoplay video (see CreatorVideoCard),
-// add a `video: "/brand/creators/<file>.mp4"` field once a real, licensed copy
-// of the clip is available — `image` then doubles as the video's poster frame.
-// Never point `video` at a live Instagram URL; only a locally-hosted file.
+// The iD Creator Collective section. Three self-hosted, muted-autoplay video
+// clips from iD Fresh's own Instagram account (trimmed to short ~9s teasers,
+// no audio track, downscaled to card size — see public/brand/videos/ and
+// scripts used to produce them). Labeled honestly as "iD Fresh" since that's
+// the real source — no fabricated creator handles or invented follower/view
+// counts next to real content.
 export const CREATOR_POSTS: CreatorPost[] = [
   {
     id: "c1",
-    creatorName: "@kitchenwithkavya",
-    metricLabel: "83.5k followers",
-    emoji: "🍳",
+    creatorName: "iD Fresh",
+    metricLabel: "Chana Achari Wrap",
+    emoji: "🌯",
     tone: "moss",
-    image: "/brand/creators/creator-1-baking.png",
+    video: "/brand/videos/chana-achari-wrap.mp4",
+    image: "/brand/videos/chana-achari-wrap.jpg",
   },
   {
     id: "c2",
     creatorName: "iD Fresh",
-    metricLabel: "32M views",
+    metricLabel: "Coffee meets jaggery",
     emoji: "☕",
     tone: "clay",
-    image: "/brand/creators/creator-2-coffee.png",
+    video: "/brand/videos/coffee-jaggery.mp4",
+    image: "/brand/videos/coffee-jaggery.jpg",
   },
   {
     id: "c3",
-    creatorName: "@dosadiaries",
-    metricLabel: "Sir, do you...?",
+    creatorName: "iD Fresh",
+    metricLabel: "Jini Dosa nights",
     emoji: "🥞",
     tone: "amber",
-    image: "/brand/creators/creator-3-grocery.png",
+    video: "/brand/videos/jini-dosa.mp4",
+    image: "/brand/videos/jini-dosa.jpg",
   },
 ];
