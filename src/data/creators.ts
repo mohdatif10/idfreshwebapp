@@ -1,7 +1,10 @@
 import type { CreatorPost } from "@/lib/types";
 
-// The iD Creator Collective Instagram embeds. The three real posts already have
-// captions/stats and the Instagram badge baked into the source image.
+// The iD Creator Collective section. These three use static photos today.
+// To upgrade any of them to a self-hosted autoplay video (see CreatorVideoCard),
+// add a `video: "/brand/creators/<file>.mp4"` field once a real, licensed copy
+// of the clip is available — `image` then doubles as the video's poster frame.
+// Never point `video` at a live Instagram URL; only a locally-hosted file.
 export const CREATOR_POSTS: CreatorPost[] = [
   {
     id: "c1",

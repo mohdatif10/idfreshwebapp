@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
+import { CreatorVideoCard } from "@/components/home/CreatorVideoCard";
 import { CREATOR_POSTS } from "@/data/creators";
 
 export function CreatorCollective() {
@@ -15,7 +16,9 @@ export function CreatorCollective() {
         <div className="no-scrollbar mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
           {CREATOR_POSTS.map((post) => (
             <div key={post.id} className="w-44 shrink-0 snap-start text-center sm:w-52">
-              {post.image ? (
+              {post.video ? (
+                <CreatorVideoCard post={post} />
+              ) : post.image ? (
                 <div className="relative aspect-9/16 w-full overflow-hidden rounded-3xl">
                   <Image
                     src={post.image}

@@ -33,8 +33,12 @@ export interface CreatorPost {
   metricLabel: string;
   emoji: string;
   tone: PlaceholderTone;
-  /** Real baked creator-post image (already includes caption/IG badge) — falls back to placeholder when absent. */
+  /** Real baked creator-post image (already includes caption/IG badge) — falls back to placeholder when absent. Also used as the <video> poster frame when `video` is set. */
   image?: string;
+  /** Self-hosted video clip (mp4) from /public/brand — autoplays muted+looped when scrolled into view. Requires a licensed/downloaded copy of the clip; never a live Instagram embed. */
+  video?: string;
+  /** Optional secondary link to the creator's Instagram profile/post — opens in a new tab, never the card's primary click target (keeps viewers on-site). */
+  instagramUrl?: string;
 }
 
 export interface HowToStep {
