@@ -41,13 +41,35 @@ export function Header() {
     setSearchValue("");
   }
 
+  function handleSearchToggle() {
+    const willOpen = !searchOpen;
+    // Flush synchronously so the input exists in the DOM before we call
+    // .focus() below — mobile browsers only open the on-screen keyboard for a
+    // focus() that happens within the same tap gesture, and a plain setState
+    // + effect-based focus lands one tick too late for that on some devices.
+    flushSync(() => {
+      setSearchOpen(willOpen);
+      setMenuOpen(false);
+    });
+    if (willOpen) searchInputRef.current?.focus();
+  }
+
   return (
     <header ref={headerRef} className="fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:pt-6">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/10 bg-brand-950/30 px-3 py-2 shadow-lg shadow-black/10 backdrop-blur-xl sm:px-5 sm:py-3">
-        <IdLogo markHeight={36} showWordmark={false} priority />
+      <div
+        onClick={handleSearchToggle}
+        className="mx-auto flex w-full max-w-6xl cursor-pointer items-center justify-between gap-4 rounded-full border border-white/10 bg-brand-950/30 px-3 py-2 shadow-lg shadow-black/10 backdrop-blur-xl sm:px-5 sm:py-3"
+      >
+        {/* The pill reads visually as one long search bar, so tapping its
+            empty background also opens search (handleSearchToggle above) —
+            these three interactive groups stop that click from bubbling so
+            they keep their own distinct actions instead of double-firing it. */}
+        <div onClick={(event) => event.stopPropagation()}>
+          <IdLogo markHeight={36} showWordmark={false} priority />
+        </div>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav onClick={(event) => event.stopPropagation()} className="hidden items-center gap-7 md:flex">
           {DESKTOP_LINKS.map((item) =>
             item.children ? (
               <div key={item.href} className="group relative">
@@ -90,24 +112,12 @@ export function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div onClick={(event) => event.stopPropagation()} className="flex items-center gap-2">
           <button
             type="button"
             aria-label={searchOpen ? "Close search" : "Search recipes"}
             aria-expanded={searchOpen}
-            onClick={() => {
-              const willOpen = !searchOpen;
-              // Flush synchronously so the input exists in the DOM before we
-              // call .focus() below — mobile browsers only open the on-screen
-              // keyboard for a focus() that happens within the same tap
-              // gesture, and a plain setState + effect-based focus lands one
-              // tick too late for that on some devices.
-              flushSync(() => {
-                setSearchOpen(willOpen);
-                setMenuOpen(false);
-              });
-              if (willOpen) searchInputRef.current?.focus();
-            }}
+            onClick={handleSearchToggle}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:border-lime-400 hover:text-lime-400 sm:h-10 sm:w-10"
           >
             {searchOpen ? <X className="h-4 w-4" /> : <Search className="h-4 w-4" />}
