@@ -9,9 +9,9 @@ import { STORY_MILESTONES, STORY_TIMELINE_END, STORY_TIMELINE_START } from "@/da
 export function OurStory() {
   const [activeYear, setActiveYear] = useState(STORY_TIMELINE_START);
 
-  // Show the most recent milestone at or before the dragged-to year — with
-  // only one real milestone today that's always 2005's chapter, but this
-  // makes the slider correctly "fill in" as more years get real content.
+  // Show the most recent milestone at or before the dragged-to year, so
+  // dragging past a year with no dedicated entry (e.g. 2009, 2011) keeps
+  // showing the last real chapter rather than going blank.
   const activeMilestone = useMemo(() => {
     const sorted = [...STORY_MILESTONES].sort((a, b) => a.year - b.year);
     return [...sorted].reverse().find((m) => m.year <= activeYear) ?? sorted[0];
@@ -29,7 +29,10 @@ export function OurStory() {
         </h2>
         <p className="mt-5 text-lg text-inkgray">
           {activeMilestone.description}{" "}
-          <a href="#" className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-900">
+          <a
+            href="/corporate/about-us"
+            className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-900"
+          >
             read the full story
           </a>
         </p>
@@ -38,7 +41,7 @@ export function OurStory() {
           <div className="relative mx-auto mt-12 h-56 w-56 sm:h-64 sm:w-64">
             <Image
               src={activeMilestone.image}
-              alt="Illustration of the original iD Fresh shop"
+              alt={activeMilestone.title}
               fill
               sizes="16rem"
               className="object-contain"

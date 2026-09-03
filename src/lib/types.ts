@@ -84,7 +84,6 @@ export interface Product {
   longDescription?: string;
   sizes?: string[];
   ingredientsNote?: string;
-  ingredientsList?: string[];
   howToMake?: HowToStep[];
   faqs?: FaqEntry[];
   testimonials?: Testimonial[];

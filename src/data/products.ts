@@ -28,13 +28,6 @@ export const PRODUCTS: Product[] = [
     sizes: ["500ml", "1L", "2L"],
     ingredientsNote:
       "RO-Purified Water (55%), Rice (34%), Urad Dal, Fenugreek and Iodised Salt.",
-    ingredientsList: [
-      "RO-Purified Water (55%)",
-      "Rice (34%)",
-      "Urad Dal",
-      "Fenugreek",
-      "Iodised Salt",
-    ],
     howToMake: [
       {
         title: "1. Wash the pack",

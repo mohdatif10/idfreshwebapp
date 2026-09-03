@@ -51,11 +51,6 @@ export function Hero({ query, onQueryChange, onSubmit, activeFilter, onToggleFil
         sizes="100vw"
         className="hidden object-cover sm:block"
       />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-linear-to-b from-brand-900/85 via-brand-900/55 to-brand-900/90"
-      />
-
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="font-display text-4xl font-bold leading-[1.06] tracking-[-0.06em] text-cream sm:text-5xl">

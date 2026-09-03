@@ -12,12 +12,15 @@ interface ProductDetailViewProps {
   product: Product;
   relatedProducts: Product[];
   relatedRecipes: Recipe[];
+  /** The category pill-switcher's product-picker row, rendered directly below
+   * the hero image — only passed in category-switcher mode. */
+  switcher?: React.ReactNode;
 }
 
 /** The full product detail body (everything below the hero photo) — shared by the
  * plain /our-food/[product-slug] page and the category pill-switcher, which swaps
  * which product's bundle is passed in without a page navigation. */
-export function ProductDetailView({ product, relatedProducts, relatedRecipes }: ProductDetailViewProps) {
+export function ProductDetailView({ product, relatedProducts, relatedRecipes, switcher }: ProductDetailViewProps) {
   return (
     <>
       <h1 className="mt-6 text-center font-heading text-3xl font-extrabold text-brand-900 sm:text-4xl">
@@ -49,6 +52,8 @@ export function ProductDetailView({ product, relatedProducts, relatedRecipes }: 
         )}
       </div>
 
+      {switcher}
+
       {product.longDescription && (
         <div className="mt-8 rounded-2xl bg-brand-500 p-6 text-cream sm:p-8">
           <p className="text-sm leading-relaxed sm:text-base">{product.longDescription}</p>
@@ -79,11 +84,7 @@ export function ProductDetailView({ product, relatedProducts, relatedRecipes }: 
         </div>
       )}
 
-      {product.ingredientsNote && (
-        <p className="mt-6 text-sm text-inkgray">{product.ingredientsNote}</p>
-      )}
-
-      {(product.ingredientsList ||
+      {(product.ingredientsNote ||
         product.howToMake ||
         product.storageInstructions ||
         product.nutritionFacts ||
@@ -91,22 +92,13 @@ export function ProductDetailView({ product, relatedProducts, relatedRecipes }: 
         <div className="mt-10">
           <ProductAccordion
             items={[
-              ...(product.ingredientsList
+              ...(product.ingredientsNote
                 ? [
                     {
                       title: "Ingredients",
                       content: (
                         <>
-                          <ul className="flex flex-wrap gap-2">
-                            {product.ingredientsList.map((ingredient) => (
-                              <li
-                                key={ingredient}
-                                className="rounded-full bg-brand-50 px-3 py-1 text-sm text-brand-800"
-                              >
-                                {ingredient}
-                              </li>
-                            ))}
-                          </ul>
+                          <p className="text-sm text-inkgray">{product.ingredientsNote}</p>
                           {product.allergenDeclaration && (
                             <p className="mt-4 text-xs text-inkgray">
                               <span className="font-semibold">Allergen declaration: </span>

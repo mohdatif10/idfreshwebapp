@@ -56,38 +56,30 @@ export function Newsroom({ posts }: { posts: NewsPost[] }) {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
-          <div className="flex aspect-4/3 items-center justify-center rounded-3xl bg-linear-to-br from-amber-100 via-orange-200 to-orange-400 text-6xl sm:aspect-auto sm:h-full">
-            🥘
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5">
+          <Link
+            href={rest[0]?.href ?? "/our-food/whats-new"}
+            className="relative row-span-2 overflow-hidden rounded-2xl sm:rounded-3xl"
+          >
+            <Image
+              src="/brand/misc/newsroom-photo.jpg"
+              alt={rest[0]?.title ?? ""}
+              fill
+              sizes="(min-width: 640px) 24rem, 45vw"
+              className="object-cover"
+            />
+          </Link>
+          <div className="flex flex-col justify-center rounded-2xl bg-brand-500 p-4 text-cream sm:rounded-3xl sm:p-8">
+            <p className="font-heading text-3xl font-extrabold text-lime-300 sm:text-6xl">45+</p>
+            <p className="mt-2 font-accent italic text-sm text-cream/90 sm:text-xl">waking up fresh to iD</p>
           </div>
-          <div className="flex flex-col justify-center rounded-3xl bg-brand-500 p-8 text-cream">
-            <p className="font-heading text-5xl font-extrabold text-lime-300 sm:text-6xl">45+</p>
-            <p className="mt-2 font-accent italic text-lg sm:text-xl">waking up fresh to iD</p>
-          </div>
+          <Link
+            href="/our-food/whats-new"
+            className="flex items-center justify-center rounded-2xl bg-lime-400 px-4 py-4 font-heading text-sm font-bold text-brand-900 transition-colors hover:bg-lime-300 sm:rounded-3xl sm:px-6 sm:py-6 sm:text-lg"
+          >
+            browse all →
+          </Link>
         </div>
-
-        {rest[0] && (
-          <div className="mt-5 grid gap-5 sm:grid-cols-2">
-            <Link
-              href={rest[0].href}
-              className="relative flex aspect-4/3 overflow-hidden rounded-3xl sm:aspect-auto"
-            >
-              <Image
-                src="/brand/misc/newsroom-featured-tile.png"
-                alt={rest[0].title}
-                fill
-                sizes="(min-width: 640px) 24rem, 90vw"
-                className="object-cover"
-              />
-            </Link>
-            <Link
-              href="/our-food/whats-new"
-              className="flex items-center justify-center rounded-3xl bg-lime-400 px-6 py-6 font-heading text-lg font-bold text-brand-900 transition-colors hover:bg-lime-300"
-            >
-              browse all →
-            </Link>
-          </div>
-        )}
       </Container>
     </section>
   );
