@@ -72,11 +72,15 @@ export default async function OurFoodSlugPage({ params }: OurFoodSlugPageProps) 
     );
   }
 
-  // Product mode: a single product, by its own slug.
+  // Product mode: a single product, by its own slug. Also shows the same
+  // sibling-product pills as category mode (pre-selected to this product) so
+  // browsing here vs. via /our-food/<category> looks and behaves identically —
+  // previously this mode never fetched siblings, so visiting a product's own
+  // URL directly hid every other product in its category.
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const bundle = await resolveBundle(product);
+  const categoryProducts = await getProductsByCategory(product.category);
 
   return (
     <div className="py-8 sm:py-12">
@@ -89,11 +93,11 @@ export default async function OurFoodSlugPage({ params }: OurFoodSlugPageProps) 
           Back
         </Link>
 
-        <ProductDetailView
-          product={bundle.product}
-          relatedProducts={bundle.relatedProducts}
-          relatedRecipes={bundle.relatedRecipes}
-        />
+        {categoryProducts.length > 1 ? (
+          <CategoryProductSwitcherServer products={categoryProducts} initialSlug={slug} />
+        ) : (
+          <ProductDetailViewServer product={product} />
+        )}
       </Container>
     </div>
   );
@@ -101,7 +105,24 @@ export default async function OurFoodSlugPage({ params }: OurFoodSlugPageProps) 
 
 /** Resolves every category product's bundle server-side, then hands the whole
  * array to the client switcher — so swapping pills never needs a refetch. */
-async function CategoryProductSwitcherServer({ products }: { products: Product[] }) {
+async function CategoryProductSwitcherServer({
+  products,
+  initialSlug,
+}: {
+  products: Product[];
+  initialSlug?: string;
+}) {
   const bundles = await Promise.all(products.map(resolveBundle));
-  return <CategoryProductSwitcher bundles={bundles} />;
+  return <CategoryProductSwitcher bundles={bundles} initialSlug={initialSlug} />;
+}
+
+async function ProductDetailViewServer({ product }: { product: Product }) {
+  const bundle = await resolveBundle(product);
+  return (
+    <ProductDetailView
+      product={bundle.product}
+      relatedProducts={bundle.relatedProducts}
+      relatedRecipes={bundle.relatedRecipes}
+    />
+  );
 }

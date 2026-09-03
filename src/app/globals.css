@@ -91,6 +91,23 @@ body {
   animation: marquee-scroll 216s linear -43.2s infinite;
 }
 
+/* A standing "this is tappable" cue for pill buttons — hover/active states
+   alone only show on interaction, so touch users (no :hover at all) never see
+   any affordance until they've already tapped. A slow, gentle scale breathe
+   makes the pill visibly alive at rest, before any interaction. */
+@keyframes pill-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pill-breathe {
+  animation: pill-breathe 2.2s ease-in-out infinite;
+}
+
 /* Hide scrollbar for horizontally-scrolling card rails, keep it scrollable */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

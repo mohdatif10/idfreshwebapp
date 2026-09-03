@@ -1,13 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { STORY_MILESTONES, STORY_TIMELINE_END, STORY_TIMELINE_START } from "@/data/story-milestones";
 
+// How much accumulated wheel delta counts as "one notch" — tuned so a single
+// mouse-wheel click or one trackpad-scroll gesture reliably moves exactly one
+// year, instead of firing many tiny native `input` events per physical scroll.
+const WHEEL_STEP_THRESHOLD = 100;
+
 export function OurStory() {
   const [activeYear, setActiveYear] = useState(STORY_TIMELINE_START);
+  const sliderRef = useRef<HTMLInputElement>(null);
+  const wheelAccumRef = useRef(0);
+
+  // Native range inputs don't respond to the mouse wheel/trackpad at all by
+  // default — scrolling over one just scrolls the page instead, which read as
+  // "sometimes I scroll and nothing happens." A non-passive wheel listener
+  // (React's onWheel can't reliably preventDefault) lets scrolling over the
+  // slider step the year by exactly one instead, and stops the page from
+  // scrolling at the same time.
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    function handleWheel(event: WheelEvent) {
+      event.preventDefault();
+      const delta = Math.abs(event.deltaY) > Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+      wheelAccumRef.current += delta;
+
+      while (Math.abs(wheelAccumRef.current) >= WHEEL_STEP_THRESHOLD) {
+        const direction = wheelAccumRef.current > 0 ? 1 : -1;
+        setActiveYear((year) =>
+          Math.min(STORY_TIMELINE_END, Math.max(STORY_TIMELINE_START, year + direction))
+        );
+        wheelAccumRef.current -= direction * WHEEL_STEP_THRESHOLD;
+      }
+    }
+
+    slider.addEventListener("wheel", handleWheel, { passive: false });
+    return () => slider.removeEventListener("wheel", handleWheel);
+  }, []);
 
   // Show the most recent milestone at or before the dragged-to year, so
   // dragging past a year with no dedicated entry (e.g. 2009, 2011) keeps
@@ -24,18 +59,18 @@ export function OurStory() {
     <section id="our-story" data-scroll-target className="py-16 sm:py-24">
       <Container className="max-w-3xl">
         <SectionLabel tone="teal">Our Story</SectionLabel>
-        <h2 className="mt-2 font-heading text-4xl font-extrabold leading-tight text-brand-900 sm:text-5xl">
+        <h2 className="mt-2 min-h-[5rem] font-heading text-4xl font-extrabold leading-tight text-brand-900 sm:min-h-[6.5rem] sm:text-5xl">
           {activeMilestone.title}
         </h2>
-        <p className="mt-5 text-lg text-inkgray">
-          {activeMilestone.description}{" "}
-          <a
-            href="/corporate/about-us"
-            className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-900"
-          >
-            read the full story
-          </a>
+        <p className="mt-5 line-clamp-3 min-h-[5.25rem] text-lg text-inkgray">
+          {activeMilestone.description}
         </p>
+        <a
+          href="/corporate/about-us"
+          className="mt-1 inline-block font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-900"
+        >
+          read the full story
+        </a>
 
         {activeMilestone.image && (
           <div className="relative mx-auto mt-12 h-56 w-56 sm:h-64 sm:w-64">
@@ -50,12 +85,21 @@ export function OurStory() {
         )}
 
         <div className="mt-14">
-          <div className="flex items-center justify-between font-mono text-sm font-semibold text-brand-700">
-            <span>{STORY_TIMELINE_START}</span>
-            <span className="text-base font-bold text-brand-900">{activeYear}</span>
-            <span>{STORY_TIMELINE_END}</span>
+          {/* Floats directly above the thumb instead of sitting fixed in the
+              center — a center-fixed label reads as "always halfway between
+              2005 and 2025" regardless of where the thumb actually is, which
+              is misleading. Clamped 4-96% so the label itself doesn't clip
+              past the track's edges at the very first/last year. */}
+          <div className="relative h-6">
+            <span
+              className="absolute -translate-x-1/2 whitespace-nowrap font-mono text-base font-bold text-brand-900 transition-[left] duration-100"
+              style={{ left: `${Math.min(96, Math.max(4, fillPercent))}%` }}
+            >
+              {activeYear}
+            </span>
           </div>
           <input
+            ref={sliderRef}
             type="range"
             min={STORY_TIMELINE_START}
             max={STORY_TIMELINE_END}
@@ -77,6 +121,10 @@ export function OurStory() {
               background: `linear-gradient(to right, var(--color-teal-500) ${fillPercent}%, var(--color-sand) ${fillPercent}%)`,
             }}
           />
+          <div className="mt-2 flex items-center justify-between font-mono text-xs font-semibold text-brand-700/70">
+            <span>{STORY_TIMELINE_START}</span>
+            <span>{STORY_TIMELINE_END}</span>
+          </div>
         </div>
       </Container>
     </section>

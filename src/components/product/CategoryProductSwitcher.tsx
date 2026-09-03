@@ -12,9 +12,20 @@ export interface ProductBundle {
 
 /** Category landing page: shows one product's full detail at a time, with a pill
  * row to swap between every product in the category — all client-side, no
- * navigation/reload, since every bundle's data is already resolved server-side. */
-export function CategoryProductSwitcher({ bundles }: { bundles: ProductBundle[] }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+ * navigation/reload, since every bundle's data is already resolved server-side.
+ * Also reused on a single product's own URL (see [slug]/page.tsx) so that page
+ * shows the same sibling-product pills, pre-selected to the visited product. */
+export function CategoryProductSwitcher({
+  bundles,
+  initialSlug,
+}: {
+  bundles: ProductBundle[];
+  initialSlug?: string;
+}) {
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const index = bundles.findIndex((bundle) => bundle.product.slug === initialSlug);
+    return index === -1 ? 0 : index;
+  });
   const active = bundles[activeIndex];
 
   const switcher = bundles.length > 1 && (
@@ -24,10 +35,11 @@ export function CategoryProductSwitcher({ bundles }: { bundles: ProductBundle[] 
           key={bundle.product.id}
           type="button"
           onClick={() => setActiveIndex(index)}
+          style={index === activeIndex ? undefined : { animationDelay: `${index * 0.3}s` }}
           className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 font-nav text-xs font-bold shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-95 ${
             index === activeIndex
               ? "bg-brand-500 text-white"
-              : "bg-brand-50 text-brand-800 hover:bg-brand-100"
+              : "animate-pill-breathe bg-brand-50 text-brand-800 hover:bg-brand-100"
           }`}
         >
           {bundle.product.name}

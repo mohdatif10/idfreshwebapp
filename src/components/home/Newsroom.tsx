@@ -21,7 +21,7 @@ export function Newsroom({ posts }: { posts: NewsPost[] }) {
   const tickerItems = [...NEWS_TICKER, ...NEWS_TICKER];
 
   return (
-    <section id="newsroom" data-scroll-target className="py-16 sm:py-24">
+    <section id="newsroom" data-scroll-target className="pt-16 pb-4 sm:pt-24 sm:pb-8">
       <Container>
         <h2 className="font-heading text-3xl font-extrabold text-brand-900 sm:text-4xl">
           iD newsroom
