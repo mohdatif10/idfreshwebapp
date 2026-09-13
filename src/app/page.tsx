@@ -21,7 +21,7 @@ export default async function Home() {
       <CreatorCollective />
       <PromiseBanner />
       <OurStory />
-      <ProductShowcase products={products} />
+      <ProductShowcase products={products.slice(0, 6)} />
       <Newsroom posts={news} />
     </>
   );

@@ -34,7 +34,10 @@ export function VideoLightbox({ post, onClose }: { post: CreatorPost | null; onC
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+      // True edge-to-edge fullscreen on phones (no letterboxing around the
+      // video, matching Reels/TikTok) — from the sm breakpoint up there's
+      // enough surrounding space that an inset "theater" card reads better.
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black sm:bg-black/80 sm:p-4 sm:backdrop-blur-sm"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -44,13 +47,13 @@ export function VideoLightbox({ post, onClose }: { post: CreatorPost | null; onC
         type="button"
         onClick={onClose}
         aria-label="Close video"
-        className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
       >
         <X className="h-5 w-5" />
       </button>
 
       <div
-        className="relative aspect-9/16 h-full max-h-[85vh] w-auto max-w-full overflow-hidden rounded-3xl bg-black shadow-2xl"
+        className="relative h-full w-full overflow-hidden bg-black shadow-2xl sm:aspect-9/16 sm:h-full sm:max-h-[85vh] sm:w-auto sm:max-w-full sm:rounded-3xl"
         onClick={(event) => event.stopPropagation()}
       >
         {/* key remounts the element on every open so a fresh <video> always starts
@@ -63,7 +66,7 @@ export function VideoLightbox({ post, onClose }: { post: CreatorPost | null; onC
           autoPlay
           loop
           playsInline
-          className="h-full w-full object-contain"
+          className="h-full w-full object-cover sm:object-contain"
         />
       </div>
 

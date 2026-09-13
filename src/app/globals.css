@@ -88,7 +88,7 @@ body {
    starts the loop already 20% through instead of flush at translateX(0) —
    if the duration changes, recompute the delay as -0.2 * duration to match. */
 .animate-marquee-slow {
-  animation: marquee-scroll 216s linear -43.2s infinite;
+  animation: marquee-scroll 21.6s linear -4.32s infinite;
 }
 
 /* A standing "this is tappable" cue for pill buttons — hover/active states

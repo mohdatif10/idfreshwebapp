@@ -178,17 +178,41 @@ export const PRODUCTS: Product[] = [
     tone: "sand",
     category: "coffee",
     image: "/brand/products/filter-coffee-jaggery-pour.png",
-    heroImage: "/brand/products/filter-coffee-decoction-hero.jpg",
+    heroImage: "/brand/products/filter-coffee-jaggery-pour.png",
     tagline: "Restaurant coffee at home",
     longDescription:
       "The best filter coffee in town is served in your kitchen. Snip open a pack and pour out dark, authentic filter coffee liquid. A dash of sugar, a tail pour of hot milk and your favourite coffee is ready. Instantly. Aromatic filter coffee with the natural sweetness of jaggery — a smooth, velvety texture meets earthy caramel notes for a comforting, well-rounded taste.",
     howToMake: [
-      { title: "1. Choose your serving pack", description: "Pick a Jaggery Filter Coffee Decoction sachet." },
-      { title: "2. Shake well before use", description: "Shake the sachet well before opening." },
-      { title: "3. Add hot milk", description: "Add 100ml of hot milk to a cup." },
-      { title: "4. Add decoction", description: "Add 20ml of decoction to the milk." },
-      { title: "5. Blend", description: "Pour back and forth between two tumblers to blend." },
-      { title: "6. Enjoy", description: "Made like a pro, enjoy like a pro." },
+      {
+        title: "1. Choose your serving pack",
+        description: "Pick a Jaggery Filter Coffee Decoction sachet.",
+        image: "/brand/products/coffee-decoction-how-to-1-choose.jpg",
+      },
+      {
+        title: "2. Shake well before use",
+        description: "Shake the sachet well before opening.",
+        image: "/brand/products/coffee-decoction-how-to-2-shake.jpg",
+      },
+      {
+        title: "3. Add hot milk",
+        description: "Add 100ml of hot milk to a cup.",
+        image: "/brand/products/coffee-decoction-how-to-3-milk.jpg",
+      },
+      {
+        title: "4. Add decoction",
+        description: "Add 20ml of decoction to the milk.",
+        image: "/brand/products/coffee-decoction-how-to-4-decoction.jpg",
+      },
+      {
+        title: "5. Blend",
+        description: "Pour back and forth between two tumblers to blend.",
+        image: "/brand/products/coffee-decoction-how-to-5-blend.jpg",
+      },
+      {
+        title: "6. Enjoy",
+        description: "Made like a pro, enjoy like a pro.",
+        image: "/brand/products/coffee-decoction-how-to-6-enjoy.jpg",
+      },
     ],
     ingredientsNote:
       "Coffee Chicory Decoction (80%) [RO-Purified Water, Coffee (11.2%), Chicory (2.8%)], Jaggery (20%). No added colours or preservatives.",
@@ -222,13 +246,26 @@ export const PRODUCTS: Product[] = [
       "No one is going to leave your aromatic kitchen again, if you add our rice rava idli batter to your regular menu of home-made meals. Made up of a healthy mix of all nutrients, our rice rava idlies can take you on a trip back to your roots. For texture and taste that's exactly like homemade, we make our Udupi-style idli batter with premium ingredients and absolutely no chemical additives.",
     ingredientsNote: "Rice rava, Urad dal, Edible common salt, RO-Purified water.",
     howToMake: [
-      { title: "1. Wash the pack", description: "Wash the pack before you use the batter." },
+      {
+        title: "1. Wash the pack",
+        description: "Wash the pack before you use the batter.",
+        image: "/brand/products/rice-rava-how-to-1-wash.png",
+      },
       {
         title: "2. Open & season",
         description: "Cut open the pack and add salt if required. The batter is only mildly salted.",
+        image: "/brand/products/rice-rava-how-to-2-open.png",
       },
-      { title: "3. Scoop", description: "Scoop the batter out and pour it into the idli steamer." },
-      { title: "4. Serve", description: "Serve hot with an accompaniment of your choice." },
+      {
+        title: "3. Scoop",
+        description: "Scoop the batter out and pour it into the idli steamer.",
+        image: "/brand/products/rice-rava-how-to-3-steamer.png",
+      },
+      {
+        title: "4. Serve",
+        description: "Serve hot with an accompaniment of your choice.",
+        image: "/brand/products/rice-rava-how-to-4-serve.png",
+      },
     ],
     storageInstructions: "Refrigerate at 0–5°C. Bring the batter to room temperature before cooking.",
     allergenDeclaration: "Manufactured in the same facility which processes wheat.",
@@ -255,13 +292,45 @@ export const PRODUCTS: Product[] = [
     emoji: "☕",
     tone: "amber",
     category: "coffee",
-    image: "/brand/products/filter-coffee-decoction-hero.jpg",
-    heroImage: "/brand/products/filter-coffee-decoction-hero.jpg",
+    image: "/brand/products/filter-coffee-bold-hero.jpg",
+    heroImage: "/brand/products/filter-coffee-bold-hero.jpg",
     tagline: "Restaurant coffee at home",
     longDescription:
       "Exquisite filter coffee with an alluring aroma. Optimal chicory in the blend lends it a syrupy mouthfeel and that smooth yet strong taste you love. Snip open a pack, pour, add a tail of hot milk and your favourite coffee is ready — instantly.",
     ingredientsNote: "Coffee (80%), Chicory (20%), RO-Purified Water. No preservatives, colours or sugar.",
     keyClaims: ["No preservatives", "No added colours or sugar", "3 aromatic blends available"],
+    howToMake: [
+      {
+        title: "1. Choose your serving pack",
+        description: "Pick a Bold Filter Coffee Decoction sachet.",
+        image: "/brand/products/coffee-decoction-how-to-1-choose.jpg",
+      },
+      {
+        title: "2. Shake well before use",
+        description: "Shake the sachet well before opening.",
+        image: "/brand/products/coffee-decoction-how-to-2-shake.jpg",
+      },
+      {
+        title: "3. Add hot milk",
+        description: "Add 100ml of hot milk to a cup.",
+        image: "/brand/products/coffee-decoction-how-to-3-milk.jpg",
+      },
+      {
+        title: "4. Add decoction",
+        description: "Add 20ml of decoction to the milk.",
+        image: "/brand/products/coffee-decoction-how-to-4-decoction.jpg",
+      },
+      {
+        title: "5. Blend",
+        description: "Pour back and forth between two tumblers to blend.",
+        image: "/brand/products/coffee-decoction-how-to-5-blend.jpg",
+      },
+      {
+        title: "6. Enjoy",
+        description: "Made like a pro, enjoy like a pro.",
+        image: "/brand/products/coffee-decoction-how-to-6-enjoy.jpg",
+      },
+    ],
     nutritionFacts: [
       { label: "Energy", value: "24.60 kcal" },
       { label: "Protein", value: "1.06 g" },
@@ -284,13 +353,45 @@ export const PRODUCTS: Product[] = [
     emoji: "☕",
     tone: "teal",
     category: "coffee",
-    image: "/brand/products/filter-coffee-decoction-hero.jpg",
-    heroImage: "/brand/products/filter-coffee-decoction-hero.jpg",
+    image: "/brand/products/filter-coffee-strong-hero.jpg",
+    heroImage: "/brand/products/filter-coffee-strong-hero.jpg",
     tagline: "Restaurant coffee at home",
     longDescription:
       "A captivating aroma invites you to a lush, strong taste experience with chicory adding a teasing hint of bitterness. Perfect filter coffee in minutes — snip open a pack, pour, add a tail of hot milk and enjoy.",
     ingredientsNote: "Coffee (70%), Chicory (30%), RO-Purified Water. No preservatives, colours or sugar.",
     keyClaims: ["No preservatives", "No added colours or sugar", "3 aromatic blends available"],
+    howToMake: [
+      {
+        title: "1. Choose your serving pack",
+        description: "Pick a Strong Filter Coffee Decoction sachet.",
+        image: "/brand/products/coffee-decoction-how-to-1-choose.jpg",
+      },
+      {
+        title: "2. Shake well before use",
+        description: "Shake the sachet well before opening.",
+        image: "/brand/products/coffee-decoction-how-to-2-shake.jpg",
+      },
+      {
+        title: "3. Add hot milk",
+        description: "Add 100ml of hot milk to a cup.",
+        image: "/brand/products/coffee-decoction-how-to-3-milk.jpg",
+      },
+      {
+        title: "4. Add decoction",
+        description: "Add 20ml of decoction to the milk.",
+        image: "/brand/products/coffee-decoction-how-to-4-decoction.jpg",
+      },
+      {
+        title: "5. Blend",
+        description: "Pour back and forth between two tumblers to blend.",
+        image: "/brand/products/coffee-decoction-how-to-5-blend.jpg",
+      },
+      {
+        title: "6. Enjoy",
+        description: "Made like a pro, enjoy like a pro.",
+        image: "/brand/products/coffee-decoction-how-to-6-enjoy.jpg",
+      },
+    ],
     nutritionFacts: [
       { label: "Energy", value: "47 kcal" },
       { label: "Protein", value: "1.50 g" },
@@ -321,10 +422,11 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "To all the coffee connoisseurs out there, the game-changer's here. Our innovative coffee bottle isn't just functional — it's stylish and ergonomic, designed to pour a perfect cup of coffee every time. Calibrate the amount of decoction you need in your coffee. Be it light, just right, or really strong, just squeeze, measure & pour the decoction to perfection.",
     howToMake: [
-      { title: "1. Shake well", description: "Shake well before use." },
-      { title: "2. Squeeze to the nozzle line", description: "Squeeze up to the nozzle — that's 10ml, 15ml or 20ml depending on the fill line." },
-      { title: "3. Pour into milk", description: "Pour into a cup of 100ml milk." },
-      { title: "4. Mix & enjoy", description: "Mix sugar, stir and go mmm." },
+      { title: "1. Shake well", description: "Shake well before use.", image: "/brand/products/coffee-bottle-how-to-1-shake.png" },
+      { title: "2. Squeeze to the nozzle line", description: "Squeeze up to the nozzle — that's 10ml, 15ml or 20ml depending on the fill line.", image: "/brand/products/coffee-bottle-how-to-2-squeeze.png" },
+      { title: "3. Calibrate your strength", description: "Light, just right, or really strong — the fill line tells you how much decoction you're pouring.", image: "/brand/products/coffee-bottle-how-to-2b-measure.png" },
+      { title: "4. Pour into milk", description: "Pour into a cup of 100ml milk.", image: "/brand/products/coffee-bottle-how-to-3-pour.png" },
+      { title: "5. Mix & enjoy", description: "Mix sugar, stir and go mmm.", image: "/brand/products/coffee-bottle-how-to-4-mix.png" },
     ],
     ingredientsNote: "Coffee blended with chicory: Coffee (80%), Chicory (20%), RO-Purified Water.",
     keyClaims: ["No preservatives", "No added sugar", "Single origin coffee"],
@@ -353,10 +455,21 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "Close your eyes and imagine taking a sip of authentic South Indian coffee made the traditional way. The aroma, the taste, the flavour that lingers — a feeling like no other! With the right blend of coffee and chicory, iD Instant Coffee completes your breakfast every morning.",
     howToMake: [
-      { title: "1. Measure", description: "Start with 1 teaspoon of iD Instant Coffee Powder in a cup. More if you like it stronger." },
-      { title: "2. Pour", description: "Pour hot water and/or milk from a height, like a pro would." },
-      { title: "3. Sweeten", description: "Add sugar to taste." },
-      { title: "4. Mix", description: "Stir well or pour back and forth between cups for real feels." },
+      {
+        title: "1. Measure",
+        description: "Start with 1 teaspoon of iD Instant Coffee Powder in a cup. More if you like it stronger.",
+        image: "/brand/products/coffee-powder-how-to-1-measure.png",
+      },
+      {
+        title: "2. Pour",
+        description: "Pour hot water and/or milk from a height, like a pro would.",
+        image: "/brand/products/coffee-powder-how-to-2-pour.png",
+      },
+      {
+        title: "3. Sweeten & stir",
+        description: "Add sugar to taste, then stir well or pour back and forth between cups for real feels.",
+        image: "/brand/products/coffee-powder-how-to-3-stir.png",
+      },
     ],
     ingredientsNote: "Chicory mixture made from blends of coffee (60%) and chicory (40%).",
     keyClaims: ["No preservatives", "Shade grown"],
@@ -392,19 +505,37 @@ export const PRODUCTS: Product[] = [
       "The farms that grow our grains. The warehouses that store them. The factories where we prepare our preservative-free food. They're all certified to be compliant with organic protocols. At iD, organic isn't a fancy claim. It's our way of life. And now, it's yours.",
     ingredientsNote: "Organic Idly Rice, Organic Urad Dal, Organic Fenugreek, Iodised Salt, RO-Purified Water.",
     howToMake: [
-      { title: "1. Wash the pack", description: "Wash the pack before you use the batter." },
-      { title: "2. Open & season", description: "Cut open the pack and add salt if required. The batter is only mildly salted." },
+      {
+        title: "1. Wash the pack",
+        description: "Wash the pack before you use the batter.",
+        image: "/brand/products/idly-dosa-generic-how-to-1-wash.png",
+      },
+      {
+        title: "2. Open & season",
+        description: "Cut open the pack and add salt if required. The batter is only mildly salted.",
+        image: "/brand/products/idly-dosa-generic-how-to-2-cut.png",
+      },
       {
         title: "3. For Idli",
         description:
           "Directly scoop the batter out and pour it into the idly steamer. Stir the batter before pouring it into the moulds for the softest idlies.",
+        image: "/brand/products/idly-dosa-generic-how-to-3-steamer.png",
       },
       {
         title: "4. For Dosa",
         description: "Add some water to dilute the batter. After dilution, the batter can no longer be used to make idlies.",
+        image: "/brand/products/idly-dosa-generic-how-to-4-dilute.png",
       },
-      { title: "5. Cook", description: "Stir the batter before pouring it out on the pan and spreading it." },
-      { title: "6. Serve", description: "Serve hot with an accompaniment of your choice." },
+      {
+        title: "5. Cook",
+        description: "Stir the batter before pouring it out on the pan and spreading it.",
+        image: "/brand/products/idly-dosa-generic-how-to-5-cook.png",
+      },
+      {
+        title: "6. Serve",
+        description: "Serve hot with an accompaniment of your choice.",
+        image: "/brand/products/idly-dosa-generic-how-to-6-serve.png",
+      },
     ],
     keyClaims: ["Certified organic (NPOP)", "No added preservatives"],
     storageInstructions: "Refrigerate at 0–5°C. Bring the batter to room temperature before using it.",
@@ -444,19 +575,37 @@ export const PRODUCTS: Product[] = [
     ingredientsNote:
       "Rice, Urad Dal, Rice Rava, Protein Blend (Pea Protein Isolate, Soy Protein Isolate, Brown Rice Protein), Fenugreek, Iodised Salt, RO-Purified Water.",
     howToMake: [
-      { title: "1. Wash the pack", description: "Wash the pack before you use the batter." },
-      { title: "2. Open & season", description: "Cut open the pack and add salt if required. The batter is only mildly salted." },
+      {
+        title: "1. Wash the pack",
+        description: "Wash the pack before you use the batter.",
+        image: "/brand/products/protein-batter-how-to-1-wash.png",
+      },
+      {
+        title: "2. Open & season",
+        description: "Cut open the pack and add salt if required. The batter is only mildly salted.",
+        image: "/brand/products/protein-batter-how-to-2-cut.png",
+      },
       {
         title: "3. For Idli",
         description:
           "Directly scoop the batter out and pour it into the idly steamer. Stir the batter before pouring it into the moulds for the softest idlies.",
+        image: "/brand/products/idly-dosa-generic-how-to-3-steamer.png",
       },
       {
         title: "4. For Dosa",
         description: "Add some water to dilute the batter. After dilution, the batter can no longer be used to make idlies.",
+        image: "/brand/products/protein-batter-how-to-4-dilute.png",
       },
-      { title: "5. Cook", description: "Stir the batter before pouring it out on the pan and spreading it." },
-      { title: "6. Serve", description: "Serve hot with an accompaniment of your choice." },
+      {
+        title: "5. Cook",
+        description: "Stir the batter before pouring it out on the pan and spreading it.",
+        image: "/brand/products/idly-dosa-generic-how-to-5-cook.png",
+      },
+      {
+        title: "6. Serve",
+        description: "Serve hot with an accompaniment of your choice.",
+        image: "/brand/products/idly-dosa-generic-how-to-6-serve.png",
+      },
     ],
     keyClaims: ["15g protein in 2 idlies", "No soda", "No preservatives"],
     storageInstructions: "Refrigerate at 0–5°C. Bring the batter to room temperature before using it.",
@@ -493,12 +642,36 @@ export const PRODUCTS: Product[] = [
       "Breakfast treats, evening appetizers or a just-like-that snack, vadas are always the perfect indulgence. Here's iD Vada 2.0. What makes it different? You do! Add your own masala to it and make your vada, your way da! Just chop, add, fry and enjoy.",
     ingredientsNote: "Urad Dal, Rice Flour, RO-Purified Water, Edible Common Salt.",
     howToMake: [
-      { title: "1. Add your masala", description: "Open the pack to add your chopped veggies & spices, and mix it!" },
-      { title: "2. Open the nozzle", description: "Slide the cutter upwards and rotate the nozzle to open it." },
-      { title: "3. Shape the vada", description: "Squeeze gently, until the batter forms the perfect ring." },
-      { title: "4. Release", description: "Slide the cutter downwards to make one vada. Wipe off excess batter before making the next one." },
-      { title: "5. Fry", description: "In a wok of hot oil, fry the vadas until golden brown and crisp." },
-      { title: "6. Serve", description: "Remove excess oil and serve hot with your favourite accompaniments." },
+      {
+        title: "1. Add your masala",
+        description: "Open the pack to add your chopped veggies & spices, and mix it!",
+        image: "/brand/products/vada-how-to-1-add-masala.png",
+      },
+      {
+        title: "2. Open the nozzle",
+        description: "Slide the cutter upwards and rotate the nozzle to open it.",
+        image: "/brand/products/vada-how-to-2-open-nozzle.png",
+      },
+      {
+        title: "3. Shape the vada",
+        description: "Squeeze gently, until the batter forms the perfect ring.",
+        image: "/brand/products/vada-how-to-3-squeeze.png",
+      },
+      {
+        title: "4. Release",
+        description: "Slide the cutter downwards to make one vada. Wipe off excess batter before making the next one.",
+        image: "/brand/products/vada-how-to-4-release.png",
+      },
+      {
+        title: "5. Fry",
+        description: "In a wok of hot oil, fry the vadas until golden brown and crisp.",
+        image: "/brand/products/vada-how-to-5-fry.png",
+      },
+      {
+        title: "6. Serve",
+        description: "Remove excess oil and serve hot with your favourite accompaniments.",
+        image: "/brand/products/vada-how-to-6-serve.png",
+      },
     ],
     keyClaims: ["No preservatives", "No soda", "RO-purified water"],
     storageInstructions: "Refrigerate at 0–5°C.",
@@ -534,9 +707,9 @@ export const PRODUCTS: Product[] = [
       "Bring the past memories of home alive and enjoy the authentic taste of your childhood with iD Homestyle Whole Wheat Paratha. The triangular-shaped parathas are created with 100% whole wheat, and have no preservatives or additives. They're tasty, nutritious and can yum up any dish you love. All you have to do is unpack and heat it.",
     ingredientsNote: "Atta (Whole Wheat Flour), Iodized Salt, Edible Oil (Rice Bran Oil), Sugar, RO-Purified Water, Gluten.",
     howToMake: [
-      { title: "1. Cut open the pack", description: "Cut open the pack." },
-      { title: "2. Heat", description: "Heat the paratha on a tawa with a dash of ghee for about a minute." },
-      { title: "3. Serve", description: "Place the heated paratha on a serving plate and serve hot with an accompaniment of your choice." },
+      { title: "1. Cut open the pack", description: "Cut open the pack.", image: "/brand/products/homestyle-paratha-how-to-1-cut.png" },
+      { title: "2. Heat", description: "Heat the paratha on a tawa with a dash of ghee for about a minute.", image: "/brand/products/homestyle-paratha-how-to-2-heat.png" },
+      { title: "3. Serve", description: "Place the heated paratha on a serving plate and serve hot with an accompaniment of your choice.", image: "/brand/products/homestyle-paratha-how-to-3-serve.png" },
     ],
     storageInstructions: "Refrigerate at 0–5°C.",
     allergenDeclaration: "Contains gluten.",
@@ -692,9 +865,21 @@ export const PRODUCTS: Product[] = [
       "Every special occasion calls for Ma making paneer. She warns you not to trust the store bought stuff because paneer available in the market is usually made with citric acid and other chemicals. iD Soft & Creamy Paneer is however made with pure milk and lemon — following Ma's ingredient list and her recipe to a tee.",
     ingredientsNote: "Milk, Lemon.",
     howToMake: [
-      { title: "1. Wash the pack", description: "Wash the pack before you cut it open." },
-      { title: "2. Cube it", description: "Cut the paneer into cubes." },
-      { title: "3. Cook", description: "Fry, mix, or stir into the creamy dish you are serving with love." },
+      {
+        title: "1. Wash the pack",
+        description: "Wash the pack before you cut it open.",
+        image: "/brand/products/paneer-how-to-1-wash.png",
+      },
+      {
+        title: "2. Cube it",
+        description: "Cut the paneer into cubes.",
+        image: "/brand/products/paneer-how-to-2-cube.png",
+      },
+      {
+        title: "3. Cook",
+        description: "Fry, mix, or stir into the creamy dish you are serving with love.",
+        image: "/brand/products/paneer-how-to-3-cook.png",
+      },
     ],
     keyClaims: ["No trans fats", "No chemical additives", "Made with milk & lemon"],
     storageInstructions: "Keep under refrigeration at 4°C or below in hygienic conditions.",
@@ -730,9 +915,10 @@ export const PRODUCTS: Product[] = [
       "Real fruit blended with love and made available in a freshly frozen form. If you love the flavour of mango in your smoothies, milkshakes, or desserts, then this one's for you. Frozen mango pulp with absolutely no preservatives. So go ahead, add a bit of fruit, and make everything taste better!",
     ingredientsNote: "Mango Pulp (74.07%), Sugar, RO-Purified Water.",
     howToMake: [
-      { title: "1. Scoop", description: "Scoop out the pulp." },
-      { title: "2. Blend", description: "Make a shake or mix it up as a smoothie." },
-      { title: "3. Enjoy", description: "Have it as dessert, or just have it as it is." },
+      { title: "1. Scoop", description: "Scoop out the pulp.", image: "/brand/products/frozen-mango-how-to-1-scoop.png" },
+      { title: "2. Blend", description: "Make a shake with it.", image: "/brand/products/frozen-mango-how-to-2-blend.png" },
+      { title: "3. Enjoy as dessert", description: "Have it as dessert.", image: "/brand/products/frozen-mango-how-to-3-enjoy.png" },
+      { title: "4. Or on the go", description: "Mix it up as a smoothie, or just have it as it is.", image: "/brand/products/frozen-mango-how-to-4-smoothie.png" },
     ],
     storageInstructions: "Keep frozen.",
     nutritionFacts: [
