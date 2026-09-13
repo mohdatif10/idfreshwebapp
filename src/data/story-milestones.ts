@@ -96,6 +96,15 @@ export const STORY_MILESTONES: StoryMilestone[] = [
     image: "/brand/misc/timeline/2018.jpg",
   },
   {
+    year: 2019,
+    title: "Organic Range & US launch",
+    description:
+      "In 2019, with the launch of the Organic Range, iD made a move towards a sustainable goal. The crop used in making the Organic Range is sourced responsibly and grown in a chemical-free way. iD also made an overseas visit to the United States of America by launching Filter Coffee there.",
+    // No timeline photo supplied for this year yet — every other entry has a
+    // real photo at /brand/misc/timeline/<year>.jpg; add 2019.jpg when available
+    // rather than pointing at a file that doesn't exist.
+  },
+  {
     year: 2020,
     title: "Eco-friendly packaging & Store Finder",
     description:
@@ -137,10 +146,20 @@ export const STORY_MILESTONES: StoryMilestone[] = [
       "This year, we took our mission of completing the South Indian breakfast a step further. Following our chutneys, we launched iD Sambar! A homestyle, authentic recipe made with fresh, handpicked ingredients. We also introduced a first-of-its-kind, flavourful twist to a classic with our Flavoured Parotas, featuring Peri-Peri, Italian Herbs & Chilli variants, which pair great with your favourite curries!",
     image: "/brand/misc/timeline/2025.jpg",
   },
+  {
+    year: 2026,
+    title: "Protein Range & iD Snacks launch",
+    description:
+      "We expanded our range with protein-rich everyday favourites, including batter, paneer and chapati, and entered the snacking space with iD Snacks — a delicious range of better-for-you favourites made without palm oil, preservatives or artificial flavours. We also took our promise of transparency to the IIMBue Stage, where PC Musthafa faced a live Lie Detector Test in front of thousands of community members.",
+    // Source photo for this entry is AI-generated illustration (ChatGPT), not real
+    // product/event photography like every other year above — flagged as an open
+    // question rather than silently treated as equivalent to the rest.
+    image: "/brand/misc/timeline/2026.jpg",
+  },
 ];
 
 export const STORY_TIMELINE_START = 2005;
-export const STORY_TIMELINE_END = 2025;
+export const STORY_TIMELINE_END = 2026;
 
 // The full "About Us" intro paragraph, used on the real /corporate/about-us page.
 export const ABOUT_US_INTRO =

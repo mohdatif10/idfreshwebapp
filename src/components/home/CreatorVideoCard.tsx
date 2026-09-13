@@ -19,8 +19,10 @@ import type { CreatorPost } from "@/lib/types";
  *    small, cheap loop rather than a long download.
  * The Instagram link, when present, is a small secondary icon — never the
  * card's primary click target — so viewers stay on-site by default.
+ * Clicking anywhere else on the card opens the full-size player (`onOpen`) —
+ * this loop keeps playing muted underneath exactly as before.
  */
-export function CreatorVideoCard({ post }: { post: CreatorPost }) {
+export function CreatorVideoCard({ post, onOpen }: { post: CreatorPost; onOpen: () => void }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
@@ -67,7 +69,20 @@ export function CreatorVideoCard({ post }: { post: CreatorPost }) {
   }, [shouldLoad]);
 
   return (
-    <div ref={wrapperRef} className="relative aspect-9/16 w-full overflow-hidden rounded-3xl bg-brand-900">
+    <div
+      ref={wrapperRef}
+      role="button"
+      tabIndex={0}
+      onClick={onOpen}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onOpen();
+        }
+      }}
+      aria-label={`Play ${post.creatorName} — ${post.metricLabel}`}
+      className="relative aspect-9/16 w-full cursor-pointer overflow-hidden rounded-3xl bg-brand-900"
+    >
       {shouldLoad ? (
         <video
           ref={videoRef}
@@ -97,6 +112,7 @@ export function CreatorVideoCard({ post }: { post: CreatorPost }) {
           href={post.instagramUrl}
           target="_blank"
           rel="noreferrer"
+          onClick={(event) => event.stopPropagation()}
           aria-label={`Open ${post.creatorName}'s post on Instagram`}
           className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50"
         >

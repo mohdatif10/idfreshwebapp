@@ -1,11 +1,18 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { CreatorVideoCard } from "@/components/home/CreatorVideoCard";
+import { VideoLightbox } from "@/components/home/VideoLightbox";
 import { CREATOR_POSTS } from "@/data/creators";
+import type { CreatorPost } from "@/lib/types";
 
 export function CreatorCollective() {
+  const [activePost, setActivePost] = useState<CreatorPost | null>(null);
+
   return (
     <section className="pb-14 sm:pb-20">
       <Container>
@@ -17,7 +24,7 @@ export function CreatorCollective() {
           {CREATOR_POSTS.map((post) => (
             <div key={post.id} className="w-44 shrink-0 snap-start text-center sm:w-52">
               {post.video ? (
-                <CreatorVideoCard post={post} />
+                <CreatorVideoCard post={post} onOpen={() => setActivePost(post)} />
               ) : post.image ? (
                 <div className="relative aspect-9/16 w-full overflow-hidden rounded-3xl">
                   <Image
@@ -53,6 +60,8 @@ export function CreatorCollective() {
           ))}
         </div>
       </Container>
+
+      <VideoLightbox post={activePost} onClose={() => setActivePost(null)} />
     </section>
   );
 }

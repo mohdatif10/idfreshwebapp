@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ABOUT_US_INTRO, STORY_MILESTONES } from "@/data/story-milestones";
+import { DNA_INTRO, DNA_PILLARS, EMPLOYEE_STORIES, LEADERSHIP_PRINCIPLES } from "@/data/dna";
 
 export const metadata: Metadata = {
   title: "About Us & iD DNA | iD Fresh",
@@ -70,6 +71,116 @@ export default function AboutUsPage() {
                     {milestone.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-inkgray">{milestone.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-24">
+        <Container className="max-w-3xl text-center">
+          <SectionLabel tone="teal">iD DNA</SectionLabel>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold text-brand-900 sm:text-4xl">
+            Our DNA is built around four key pillars
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-inkgray">{DNA_INTRO}</p>
+        </Container>
+
+        <Container className="mt-10 max-w-4xl">
+          <div className="grid gap-5 sm:grid-cols-2">
+            {DNA_PILLARS.map((pillar) => (
+              <div key={pillar.number} className="rounded-2xl border border-brand-100 p-6">
+                <span className="font-mono text-sm font-bold text-lime-500">{pillar.number}</span>
+                <h3 className="mt-1 font-heading text-lg font-bold text-brand-900">{pillar.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-inkgray">{pillar.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+
+        <Container className="mt-10 max-w-4xl">
+          <div className="grid grid-cols-2 gap-5">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
+              <Image
+                src="/brand/corporate/dna/happy-workplace.jpg"
+                alt="A happy iD workplace"
+                fill
+                sizes="(min-width: 640px) 20rem, 45vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
+              <Image
+                src="/brand/corporate/dna/table-tennis.jpg"
+                alt="Table tennis at the iD office"
+                fill
+                sizes="(min-width: 640px) 20rem, 45vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="relative overflow-hidden bg-brand-900 py-16 sm:py-24">
+        <div className="absolute inset-0">
+          <Image
+            src="/brand/corporate/dna/hero-made-with-love.png"
+            alt=""
+            aria-hidden
+            fill
+            sizes="100vw"
+            className="object-cover opacity-30"
+          />
+        </div>
+        <Container className="relative max-w-4xl text-center">
+          <SectionLabel tone="lime">Who thrives here</SectionLabel>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold text-cream sm:text-4xl">
+            Leadership Principles: The Key Ingredients to Success at iD
+          </h2>
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-5 sm:grid-cols-3">
+            {LEADERSHIP_PRINCIPLES.map((principle) => (
+              <div key={principle.title} className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                <div className="relative mx-auto h-12 w-12">
+                  <Image src={principle.icon} alt="" aria-hidden fill sizes="3rem" className="object-contain" />
+                </div>
+                <p className="mt-3 font-heading text-sm font-bold text-cream">{principle.title}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-sand py-16 sm:py-24">
+        <Container>
+          <div className="relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-3xl">
+            <Image
+              src="/brand/corporate/dna/dream-team.png"
+              alt="The iD Dream Team, celebrating together"
+              fill
+              sizes="(min-width: 1024px) 56rem, 100vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div className="mt-10 text-center">
+            <SectionLabel tone="teal">Real Faces, Real Stories</SectionLabel>
+            <h2 className="mt-2 font-heading text-3xl font-extrabold text-brand-900 sm:text-4xl">
+              Straight from the people who make iD, iD
+            </h2>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {EMPLOYEE_STORIES.map((story) => (
+              <div key={story.name} className="flex gap-4 rounded-2xl bg-white p-5">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-brand-50">
+                  <Image src={story.photo} alt={story.name} fill sizes="3.5rem" className="object-cover" />
+                </div>
+                <div>
+                  <p className="font-heading text-sm font-bold text-brand-900">{story.name}</p>
+                  <p className="text-xs text-brand-500">{story.team}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-inkgray">&ldquo;{story.quote}&rdquo;</p>
                 </div>
               </div>
             ))}

@@ -94,7 +94,7 @@ export function Hero({ query, onQueryChange, onSubmit, activeFilter, onToggleFil
                   }`}
                 >
                   <Icon className={`h-5 w-5 ${isActive ? "text-brand-900" : "text-brand-500"}`} />
-                  {chip.label}
+                  {chip.label} recipe
                 </button>
               );
             })}
