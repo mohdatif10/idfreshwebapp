@@ -52,8 +52,8 @@ export default function AboutUsPage() {
           </div>
 
           <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-10">
-            {STORY_MILESTONES.map((milestone) => (
-              <div key={milestone.year} className="flex flex-col gap-5 sm:flex-row sm:items-start">
+            {STORY_MILESTONES.map((milestone, index) => (
+              <div key={`${milestone.year}-${index}`} className="flex flex-col gap-5 sm:flex-row sm:items-start">
                 {milestone.image && (
                   <div className="relative mx-auto h-40 w-40 shrink-0 overflow-hidden rounded-2xl sm:mx-0">
                     <Image

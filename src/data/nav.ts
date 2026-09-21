@@ -28,7 +28,8 @@ export const PRIMARY_NAV: NavItem[] = [
       { label: "Careers / Join Our Team", href: "/careers" },
       { label: "Corporate Matters", href: "/corporate/corporate-matters" },
       { label: "Terms, Privacy & Disclaimer", href: "/corporate/legal" },
-      { label: "iD Kitchens / Food Map", href: "/foodmap" },
+      // /foodmap is intentionally not linked anywhere in the site — direct URL
+      // access only. Do not add a nav entry for it back here.
     ],
   },
   { label: "TransparenSee", href: "/transparensee", icon: "eye" },

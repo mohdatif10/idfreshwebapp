@@ -46,12 +46,8 @@ const CORPORATE_SECTIONS = [
     emoji: "📄",
     description: "Terms & Conditions, Privacy Policy, Terms of Use, and Disclaimer.",
   },
-  {
-    label: "iD Kitchens / Food Map",
-    href: "/foodmap",
-    emoji: "🗺️",
-    description: "Where iD Fresh is made and delivered from.",
-  },
+  // /foodmap is intentionally not linked anywhere in the site — direct URL
+  // access only. Do not add a card for it back here.
 ];
 
 export default function CorporatePage() {

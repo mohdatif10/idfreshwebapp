@@ -146,15 +146,34 @@ export const STORY_MILESTONES: StoryMilestone[] = [
       "This year, we took our mission of completing the South Indian breakfast a step further. Following our chutneys, we launched iD Sambar! A homestyle, authentic recipe made with fresh, handpicked ingredients. We also introduced a first-of-its-kind, flavourful twist to a classic with our Flavoured Parotas, featuring Peri-Peri, Italian Herbs & Chilli variants, which pair great with your favourite curries!",
     image: "/brand/misc/timeline/2025.jpg",
   },
+  // 2026 has three separate milestones rather than one combined entry — each
+  // with its own real creative. Order matters: OurStory's home-page slider
+  // shows exactly one card per year (the last entry wins for a repeated
+  // year — see its `.find()` over a reversed sort), so whichever of these
+  // three is placed last is what the compact home-page teaser displays for
+  // 2026; the full breakdown of all three only ever appears in the list
+  // below (and wherever else STORY_MILESTONES is rendered as a list, e.g.
+  // the iD DNA page) since that view maps over every entry, not just one.
   {
     year: 2026,
-    title: "Protein Range & iD Snacks launch",
+    title: "Protein Range expands",
     description:
-      "We expanded our range with protein-rich everyday favourites, including batter, paneer and chapati, and entered the snacking space with iD Snacks — a delicious range of better-for-you favourites made without palm oil, preservatives or artificial flavours. We also took our promise of transparency to the IIMBue Stage, where PC Musthafa faced a live Lie Detector Test in front of thousands of community members.",
-    // Source photo for this entry is AI-generated illustration (ChatGPT), not real
-    // product/event photography like every other year above — flagged as an open
-    // question rather than silently treated as equivalent to the rest.
-    image: "/brand/misc/timeline/2026.jpg",
+      "We expanded our range with protein-rich everyday favourites, including batter, paneer and chapati.",
+    image: "/brand/misc/timeline/2026-protein-range.jpg",
+  },
+  {
+    year: 2026,
+    title: "iD Snacks launch",
+    description:
+      "We entered the snacking space with a delicious range of better-for-you favourites, made without palm oil, preservatives or artificial flavours.",
+    image: "/brand/misc/timeline/2026-snacks.jpg",
+  },
+  {
+    year: 2026,
+    title: "PC's Lie Detector Test, Live",
+    description:
+      "We took our promise of transparency to the IIMBue Stage, where PC Musthafa faced a live Lie Detector Test in front of thousands of community members.",
+    image: "/brand/misc/timeline/2026-lie-detector.jpg",
   },
 ];
 

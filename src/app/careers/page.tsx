@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { CAREERS_VALUES } from "@/data/careers";
 import { getOpenRoles } from "@/lib/services/careers";
+import { JobApplicationForm } from "@/components/careers/JobApplicationForm";
 
 export const metadata: Metadata = {
   title: "Careers | iD Fresh",
@@ -90,15 +91,10 @@ export default async function CareersPage() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-inkgray">
-            Don&rsquo;t see the right role? Send us your resume anyway at{" "}
-            <a href="mailto:careers@idfreshfood.com" className="font-semibold text-brand-700 underline">
-              careers@idfreshfood.com
-            </a>
-            .
-          </p>
         </Container>
       </section>
+
+      <JobApplicationForm />
     </>
   );
 }

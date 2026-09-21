@@ -1,15 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// 2026 brand refresh: "mark" is the bare iD glyph (no ring/wordmark) for tight
+// spaces; "full" is the complete lockup (ring, "100% AUTHENTIC", TM, FRESH
+// wordmark and swoosh all baked into the artwork itself — unlike the old
+// asset, the wordmark is no longer rendered as separate live text).
 const LOGO_SOURCES = {
-  white: { src: "/brand/id-logo-white.png", width: 1055, height: 1294 },
-  teal: { src: "/brand/id-logo-teal.png", width: 1284, height: 1284 },
+  white: {
+    mark: { src: "/brand/id-logo-mark-white.png", width: 579, height: 757 },
+    full: { src: "/brand/id-logo-full-white.png", width: 579, height: 757 },
+  },
+  teal: {
+    mark: { src: "/brand/id-logo-mark-teal.png", width: 579, height: 757 },
+    full: { src: "/brand/id-logo-full-teal.png", width: 579, height: 757 },
+  },
 } as const;
 
 /**
- * The real iD Fresh logo mark — always keep the ring, "100% AUTHENTIC" text, and ® together;
- * never redraw or recolor per brand guidelines. The "FRESH" wordmark beneath it is rendered as
- * real text (not part of the source image) so it stays crisp at any size/DPI.
+ * The real iD Fresh logo — always keep the ring, "100% AUTHENTIC" text, and TM together in the
+ * "full" variant; never redraw or recolor per brand guidelines.
  *
  * Uses intrinsic width/height (not `fill`) — the logo has a fixed aspect ratio, and `fill` with a
  * `sizes` hint inside a flex column let the browser's srcset selection fall back to Next's largest
@@ -27,21 +36,17 @@ export function IdLogo({
   className?: string;
   tone?: "white" | "teal";
   markHeight?: number;
+  /** true (default) renders the full lockup (ring + FRESH wordmark); false renders just the bare mark. */
   showWordmark?: boolean;
   /** Only pass for an above-the-fold instance (e.g. the header) — preloading a below-the-fold
    * instance (e.g. the footer) triggers Next's "preloaded but not used" dev warning. */
   priority?: boolean;
 }) {
-  const logo = LOGO_SOURCES[tone];
-  const textColor = tone === "white" ? "text-white" : "text-brand-500";
+  const logo = LOGO_SOURCES[tone][showWordmark ? "full" : "mark"];
   const markWidth = Math.round((markHeight * logo.width) / logo.height);
 
   return (
-    <Link
-      href="/"
-      aria-label="iD Fresh — Home"
-      className={`flex shrink-0 flex-col items-center gap-0.5 ${className}`}
-    >
+    <Link href="/" aria-label="iD Fresh — Home" className={`flex shrink-0 items-center ${className}`}>
       <Image
         src={logo.src}
         alt=""
@@ -53,14 +58,6 @@ export function IdLogo({
         style={{ width: markWidth, height: markHeight }}
         priority={priority}
       />
-      {showWordmark && (
-        <span
-          className={`font-heading text-[9px] font-bold tracking-[0.25em] ${textColor}`}
-          aria-hidden
-        >
-          FRESH
-        </span>
-      )}
     </Link>
   );
 }
