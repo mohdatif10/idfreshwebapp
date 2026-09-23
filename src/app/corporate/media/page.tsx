@@ -32,25 +32,46 @@ export default function MediaPage() {
             the joy with you through media.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {VIDEO_CAMPAIGNS.map((video, index) => (
-              <a
-                key={`${video.youtubeUrl}-${index}`}
-                href={video.youtubeUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex flex-col rounded-2xl border border-brand-100 p-5 transition-colors hover:bg-brand-50"
-              >
-                <PlayCircle className="h-8 w-8 text-brand-500" />
-                <h3 className="mt-3 font-heading text-base font-bold text-brand-900 group-hover:text-brand-600">
-                  {video.title}
-                </h3>
-                <p className="mt-1 line-clamp-3 text-sm text-inkgray">{video.description}</p>
-                <span className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand-600">
-                  Watch on YouTube
-                  <ExternalLink className="h-3 w-3" />
-                </span>
-              </a>
-            ))}
+            {VIDEO_CAMPAIGNS.map((video, index) => {
+              const content = (
+                <>
+                  <PlayCircle className="h-8 w-8 text-brand-500" />
+                  <h3 className="mt-3 font-heading text-base font-bold text-brand-900 group-hover:text-brand-600">
+                    {video.title}
+                  </h3>
+                  <p className="mt-1 line-clamp-3 text-sm text-inkgray">{video.description}</p>
+                  {video.youtubeUrl && (
+                    <span className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand-600">
+                      Watch on YouTube
+                      <ExternalLink className="h-3 w-3" />
+                    </span>
+                  )}
+                </>
+              );
+
+              if (!video.youtubeUrl) {
+                return (
+                  <div
+                    key={`${video.title}-${index}`}
+                    className="group flex flex-col rounded-2xl border border-brand-100 p-5"
+                  >
+                    {content}
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={`${video.youtubeUrl}-${index}`}
+                  href={video.youtubeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex flex-col rounded-2xl border border-brand-100 p-5 transition-colors hover:bg-brand-50"
+                >
+                  {content}
+                </a>
+              );
+            })}
           </div>
         </Container>
       </section>

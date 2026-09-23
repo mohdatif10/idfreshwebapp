@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useRef } from "react";
 import { X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { RecipeCard } from "@/components/recipes/RecipeCard";
+import { ScrollArrowButton } from "@/components/ui/ScrollArrowButton";
+import { scrollTrackByCard } from "@/lib/scrollRail";
 import type { Recipe } from "@/lib/types";
 
 interface TrendingRecipesProps {
@@ -15,6 +18,7 @@ interface TrendingRecipesProps {
 
 export function TrendingRecipes({ recipes, activeFilter, query, onClear }: TrendingRecipesProps) {
   const hasFilter = Boolean(activeFilter || query);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="trending-recipes" data-scroll-target className="py-14 sm:py-20">
@@ -51,10 +55,30 @@ export function TrendingRecipes({ recipes, activeFilter, query, onClear }: Trend
           </div>
         )}
 
-        <div className="no-scrollbar mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
-          {recipes.map((recipe) => (
-            <RecipeCard key={recipe.id} recipe={recipe} className="snap-start w-56 sm:w-64" />
-          ))}
+        <div className="relative mt-6">
+          <div ref={trackRef} className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+            {recipes.map((recipe) => (
+              <RecipeCard key={recipe.id} recipe={recipe} className="snap-start w-56 sm:w-64" />
+            ))}
+          </div>
+          {recipes.length > 1 && (
+            <>
+              {/* top-32 = half of RecipeCard's default h-64 image height (arrows only
+                  ever show at md:+, where that sm:h-64 size is already active) — not
+                  top-1/2, which would center on the whole card including the title/time
+                  text below the image. */}
+              <ScrollArrowButton
+                direction="left"
+                onClick={() => scrollTrackByCard(trackRef.current, -1)}
+                className="absolute -left-3 top-32 -translate-y-1/2"
+              />
+              <ScrollArrowButton
+                direction="right"
+                onClick={() => scrollTrackByCard(trackRef.current, 1)}
+                className="absolute -right-3 top-32 -translate-y-1/2"
+              />
+            </>
+          )}
         </div>
       </Container>
     </section>

@@ -1,3 +1,4 @@
+import { ComplaintFeedbackFab } from "@/components/home/ComplaintFeedbackFab";
 import { CreatorCollective } from "@/components/home/CreatorCollective";
 import { HomeExperience } from "@/components/home/HomeExperience";
 import { Newsroom } from "@/components/home/Newsroom";
@@ -21,8 +22,9 @@ export default async function Home() {
       <CreatorCollective />
       <PromiseBanner />
       <OurStory />
-      <ProductShowcase products={products.slice(0, 6)} />
+      <ProductShowcase products={products.slice(0, 12)} />
       <Newsroom posts={news} />
+      <ComplaintFeedbackFab />
     </>
   );
 }

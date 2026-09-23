@@ -18,7 +18,22 @@ export function ProductShowcase({ products }: { products: Product[] }) {
     const card = track.children[0] as HTMLElement | undefined;
     const amount = (card?.offsetWidth ?? 280) + 20;
     track.scrollBy({ left: amount * direction, behavior: "smooth" });
-    setActiveIndex((prev) => Math.min(Math.max(prev + direction, 0), products.length - 1));
+    // activeIndex is then kept in sync by handleScroll below, from the
+    // track's real scrollLeft — not incremented here — so it can't drift
+    // out of sync with a native touch-swipe (which never calls this fn).
+  }
+
+  // Dots previously only updated from scrollByCard, so swiping the track
+  // directly (touch, or once scrollBy hits its native max) never moved
+  // them — this keeps activeIndex tied to the track's actual scroll
+  // position instead, from whatever caused it to move.
+  function handleScroll() {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.children[0] as HTMLElement | undefined;
+    const pitch = (card?.offsetWidth ?? 280) + 20;
+    const index = Math.round(track.scrollLeft / pitch);
+    setActiveIndex(Math.min(Math.max(index, 0), products.length - 1));
   }
 
   return (
@@ -38,6 +53,7 @@ export function ProductShowcase({ products }: { products: Product[] }) {
 
         <div
           ref={trackRef}
+          onScroll={handleScroll}
           className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-2 sm:justify-center"
         >
           {products.map((product) => (

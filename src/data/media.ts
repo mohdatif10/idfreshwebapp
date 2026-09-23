@@ -1,7 +1,9 @@
 export interface VideoCampaign {
   title: string;
   description: string;
-  youtubeUrl: string;
+  /** Absent for "Hungry For Literature" — the source doc's campaigns list ends right
+   * after it with no video link attached, unlike every other entry here. */
+  youtubeUrl?: string;
 }
 
 export interface PressMention {
@@ -129,7 +131,6 @@ export const VIDEO_CAMPAIGNS: VideoCampaign[] = [
     title: "Hungry For Literature",
     description:
       "We were the official food sponsors of the Times Lit Fest 2017 that was held in Bangalore. Our stall fed the hungry literati as we served up crisp dosas and the softest idlis and parotas. The end of the fest saw all the visitors full of food and smiles.",
-    youtubeUrl: "https://www.youtube.com/watch?v=07b5kwuZc70",
   },
 ];
 

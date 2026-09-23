@@ -27,7 +27,7 @@ export function JobApplicationForm() {
   }
 
   return (
-    <section className="bg-linear-to-br from-brand-600 to-brand-800 py-16 sm:py-20">
+    <section id="apply" className="scroll-mt-24 bg-linear-to-br from-brand-600 to-brand-800 py-16 sm:py-20">
       <div className="mx-auto max-w-xl px-5 sm:px-8">
         <p className="text-lg text-cream">We&rsquo;re always looking for fresh talent.</p>
         <p className="mt-4 text-lg text-cream">Interested in joining us but unsure where you fit?</p>

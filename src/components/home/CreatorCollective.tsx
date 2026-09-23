@@ -1,17 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { CreatorVideoCard } from "@/components/home/CreatorVideoCard";
 import { VideoLightbox } from "@/components/home/VideoLightbox";
+import { ScrollArrowButton } from "@/components/ui/ScrollArrowButton";
+import { scrollTrackByCard } from "@/lib/scrollRail";
 import { CREATOR_POSTS } from "@/data/creators";
 import type { CreatorPost } from "@/lib/types";
 
 export function CreatorCollective() {
   const [activePost, setActivePost] = useState<CreatorPost | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   return (
     <section className="pb-14 sm:pb-20">
@@ -20,7 +23,8 @@ export function CreatorCollective() {
           iD Creator Collective
         </h2>
 
-        <div className="no-scrollbar mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
+        <div className="relative mt-6">
+        <div ref={trackRef} className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
           {CREATOR_POSTS.map((post) => (
             <div key={post.id} className="w-44 shrink-0 snap-start text-center sm:w-52">
               {post.video ? (
@@ -58,6 +62,17 @@ export function CreatorCollective() {
               )}
             </div>
           ))}
+        </div>
+          <ScrollArrowButton
+            direction="left"
+            onClick={() => scrollTrackByCard(trackRef.current, -1)}
+            className="absolute -left-3 top-1/2 -translate-y-1/2"
+          />
+          <ScrollArrowButton
+            direction="right"
+            onClick={() => scrollTrackByCard(trackRef.current, 1)}
+            className="absolute -right-3 top-1/2 -translate-y-1/2"
+          />
         </div>
       </Container>
 

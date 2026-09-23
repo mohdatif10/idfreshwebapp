@@ -38,7 +38,7 @@ export default async function CareersPage() {
             fresh ideas, and fresh ways of doing things.
           </p>
           <a
-            href="mailto:careers@idfreshfood.com?subject=I%27m%20interested%20in%20working%20at%20iD%20Fresh"
+            href="#apply"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime-400 px-6 py-3 font-heading font-bold text-brand-900 transition-colors hover:bg-lime-300"
           >
             <Send className="h-4 w-4" />

@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { ProductAccordion } from "@/components/product/ProductAccordion";
 import { SizeSelector } from "@/components/product/SizeSelector";
 import { TestimonialCard } from "@/components/product/TestimonialCard";
 import { RecipeRail } from "@/components/recipes/RecipeRail";
+import { ScrollArrowButton } from "@/components/ui/ScrollArrowButton";
+import { scrollTrackByCard } from "@/lib/scrollRail";
 import type { Product, Recipe } from "@/lib/types";
 
 interface ProductDetailViewProps {
@@ -21,6 +26,8 @@ interface ProductDetailViewProps {
  * plain /our-food/[product-slug] page and the category pill-switcher, which swaps
  * which product's bundle is passed in without a page navigation. */
 export function ProductDetailView({ product, relatedProducts, relatedRecipes, switcher }: ProductDetailViewProps) {
+  const testimonialTrackRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
       <h1 className="mt-6 text-center font-heading text-3xl font-extrabold text-brand-900 sm:text-4xl">
@@ -204,10 +211,29 @@ export function ProductDetailView({ product, relatedProducts, relatedRecipes, sw
       {product.testimonials && (
         <div className="mt-12">
           <h2 className="font-heading text-2xl font-extrabold text-brand-900">Testimonials</h2>
-          <div className="no-scrollbar mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
-            {product.testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.name} testimonial={testimonial} />
-            ))}
+          <div className="relative mt-5">
+            <div
+              ref={testimonialTrackRef}
+              className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+            >
+              {product.testimonials.map((testimonial) => (
+                <TestimonialCard key={testimonial.name} testimonial={testimonial} />
+              ))}
+            </div>
+            {product.testimonials.length > 1 && (
+              <>
+                <ScrollArrowButton
+                  direction="left"
+                  onClick={() => scrollTrackByCard(testimonialTrackRef.current, -1)}
+                  className="absolute -left-3 top-1/2 -translate-y-1/2"
+                />
+                <ScrollArrowButton
+                  direction="right"
+                  onClick={() => scrollTrackByCard(testimonialTrackRef.current, 1)}
+                  className="absolute -right-3 top-1/2 -translate-y-1/2"
+                />
+              </>
+            )}
           </div>
         </div>
       )}

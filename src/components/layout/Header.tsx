@@ -1,17 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { flushSync } from "react-dom";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
 import { IdLogo } from "@/components/ui/IdLogo";
 import { CAREERS_NAV, PRIMARY_NAV } from "@/data/nav";
+import type { NavItem } from "@/lib/types";
 
 const DESKTOP_LINKS = PRIMARY_NAV.filter((item) => item.href !== "/");
 
+const ACTIVE_PILL_CLASS = "rounded-full bg-lime-400 px-4 py-1.5 text-brand-900";
+const INACTIVE_LINK_CLASS = "font-nav text-sm font-bold text-white transition-colors hover:text-lime-400";
+
 export function Header() {
   const router = useRouter();
+  const pathname = usePathname();
+
+  // Whichever nav item matches the current page gets the green pill — it's a
+  // "you are here" indicator, not a permanently-highlighted Careers CTA.
+  function isLinkActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
+  function isGroupActive(item: NavItem) {
+    return isLinkActive(item.href) || (item.children?.some((child) => isLinkActive(child.href)) ?? false);
+  }
   const [menuOpen, setMenuOpen] = useState(false);
   const [openMobileItem, setOpenMobileItem] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -75,7 +90,11 @@ export function Header() {
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 font-nav text-sm font-bold text-white transition-colors hover:text-lime-400"
+                  className={`flex items-center gap-1 font-nav text-sm font-bold transition-colors ${
+                    isGroupActive(item)
+                      ? `${ACTIVE_PILL_CLASS} hover:bg-lime-300`
+                      : "text-white hover:text-lime-400"
+                  }`}
                 >
                   {item.label}
                   <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
@@ -87,7 +106,9 @@ export function Header() {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-xl px-3 py-2 font-nav text-sm font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-lime-400"
+                      className={`block rounded-xl px-3 py-2 font-nav text-sm font-semibold transition-colors hover:bg-white/10 hover:text-lime-400 ${
+                        isLinkActive(child.href) ? "text-lime-400" : "text-white/90"
+                      }`}
                     >
                       {child.label}
                     </Link>
@@ -98,7 +119,11 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-nav text-sm font-bold text-white transition-colors hover:text-lime-400"
+                className={
+                  isLinkActive(item.href)
+                    ? `${ACTIVE_PILL_CLASS} font-nav text-sm font-bold transition-colors hover:bg-lime-300`
+                    : INACTIVE_LINK_CLASS
+                }
               >
                 {item.label}
               </Link>
@@ -106,7 +131,11 @@ export function Header() {
           )}
           <Link
             href={CAREERS_NAV.href}
-            className="rounded-full bg-lime-400 px-4 py-1.5 font-nav text-sm font-bold text-brand-900 transition-colors hover:bg-lime-300"
+            className={
+              isLinkActive(CAREERS_NAV.href)
+                ? `${ACTIVE_PILL_CLASS} font-nav text-sm font-bold transition-colors hover:bg-lime-300`
+                : INACTIVE_LINK_CLASS
+            }
           >
             {CAREERS_NAV.label}
           </Link>

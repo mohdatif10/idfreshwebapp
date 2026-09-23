@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { ABOUT_US_INTRO, STORY_MILESTONES } from "@/data/story-milestones";
+import { ABOUT_US_INTRO } from "@/data/story-milestones";
 import { DNA_INTRO, DNA_PILLARS, EMPLOYEE_STORIES, LEADERSHIP_PRINCIPLES } from "@/data/dna";
+import { StoryTimelineSlider } from "@/components/story/StoryTimelineSlider";
 
 export const metadata: Metadata = {
   title: "About Us & iD DNA | iD Fresh",
@@ -51,29 +52,8 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-10">
-            {STORY_MILESTONES.map((milestone, index) => (
-              <div key={`${milestone.year}-${index}`} className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                {milestone.image && (
-                  <div className="relative mx-auto h-40 w-40 shrink-0 overflow-hidden rounded-2xl sm:mx-0">
-                    <Image
-                      src={milestone.image}
-                      alt={milestone.title}
-                      fill
-                      sizes="10rem"
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div className="text-center sm:text-left">
-                  <p className="font-mono text-sm font-bold text-brand-500">{milestone.year}</p>
-                  <h3 className="mt-1 font-heading text-xl font-bold text-brand-900">
-                    {milestone.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-inkgray">{milestone.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="mx-auto mt-12 max-w-3xl text-left">
+            <StoryTimelineSlider />
           </div>
         </Container>
       </section>
