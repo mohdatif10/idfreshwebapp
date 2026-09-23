@@ -19,14 +19,19 @@ export default async function CareersPage() {
     <>
       <section className="bg-brand-900 py-16 text-center sm:py-24">
         <Container className="max-w-2xl">
-          <SectionLabel tone="lime">Careers at iD Fresh</SectionLabel>
+          <SectionLabel tone="lime">Join Our Team</SectionLabel>
           <h1 className="mt-2 font-heading text-4xl font-extrabold text-cream sm:text-5xl">
-            Help us keep the shortcuts out
+            One man can have a dream. But it&rsquo;s a team that makes the dream work.
           </h1>
           <p className="mt-4 text-cream/80">
-            From a 50 sq ft kitchen in Tippasandra to 45+ cities — every hire at iD Fresh keeps
-            that same promise: love, and nothing else. We&rsquo;re always looking for people who
-            care about food the way we do.
+            At iD Fresh Food, we are passionate about the work that we do. Every product that we
+            make is made with love, to give our customers wholesome, flavourful Indian food
+            without the hassle of making it from scratch themselves.
+          </p>
+          <p className="mt-3 text-cream/80">
+            We believe in agility, transparency, and rigorous discipline, both in and out of the
+            kitchen — constantly challenging ourselves to serve our customers with fresh products,
+            fresh ideas, and fresh ways of doing things.
           </p>
           <a
             href="mailto:careers@idfreshfood.com?subject=I%27m%20interested%20in%20working%20at%20iD%20Fresh"

@@ -10,12 +10,11 @@ import { RecipeRail } from "@/components/recipes/RecipeRail";
 import { RECIPE_CATEGORIES } from "@/data/recipe-categories";
 import type { Recipe } from "@/lib/types";
 
-// Curated shelves for the landing page. "Related Recipes" mirrors the three
-// real-photo dishes from the design; the other two split the remaining
-// catalogue thematically until real per-shelf curation data exists.
-const RELATED_SLUGS = ["parotta-shawarma-wrap", "crispy-paneer-dosa-tacos", "crispy-paneer-masala-dosa"];
-const TRENDING_SLUGS = ["crispy-dosa-cones", "protein-loaded-idly-bowl", "sprouted-moong-dosa"];
-const FUSION_SLUGS = ["malabar-parotta-pizza", "5-minute-instant-dosa"];
+// Curated shelves for the landing page, hand-picked from the full catalogue
+// until real per-shelf curation data exists.
+const RELATED_SLUGS = ["mysore-masala-dosa", "multigrain-masala-dosa", "mixed-vegetable-masala-dosa"];
+const TRENDING_SLUGS = ["keto-dosa", "spicy-tava-idli", "tawa-masala-idli"];
+const FUSION_SLUGS = ["pizza-dosa", "idli-fry-manchurian", "paneer-chilli-dosa"];
 
 function pickBySlug(recipes: Recipe[], slugs: string[]) {
   return slugs

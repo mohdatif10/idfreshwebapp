@@ -18,4 +18,7 @@ export const OUR_FOOD_CATEGORIES: OurFoodCategory[] = [
   { label: "Chutneys", slug: "chutneys" },
   { label: "Dairy", slug: "dairy" },
   { label: "Frozen Fruit Pulp", slug: "frozen-fruit-pulp" },
+  { label: "Frozen Parathas", slug: "frozen-parathas" },
+  { label: "Ready Mix", slug: "ready-mix" },
+  { label: "Ready to Eat", slug: "ready-to-eat" },
 ];
