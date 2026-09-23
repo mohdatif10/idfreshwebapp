@@ -59,7 +59,9 @@ export default async function OurFoodPage() {
   // soon" there instead of an empty section on this page.
   const sections = OUR_FOOD_CATEGORIES.map((category) => ({
     category,
-    products: products.filter((product) => product.category === category.slug),
+    products: products.filter(
+      (product) => product.category === category.slug || product.secondaryCategories?.includes(category.slug)
+    ),
   })).filter((section) => section.products.length > 0);
 
   return (

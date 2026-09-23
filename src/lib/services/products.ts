@@ -16,5 +16,7 @@ export async function getRelatedProducts(product: Product): Promise<Product[]> {
 }
 
 export async function getProductsByCategory(categorySlug: string): Promise<Product[]> {
-  return PRODUCTS.filter((product) => product.category === categorySlug);
+  return PRODUCTS.filter(
+    (product) => product.category === categorySlug || product.secondaryCategories?.includes(categorySlug)
+  );
 }

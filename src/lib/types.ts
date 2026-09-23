@@ -76,6 +76,8 @@ export interface Product {
   image?: string;
   /** Slug matching data/our-food-categories.ts — powers /our-food?category=<slug> filtering. */
   category: string;
+  /** Extra data/our-food-categories.ts slugs this product should ALSO appear under (e.g. "whats-new"), on top of its primary `category`. */
+  secondaryCategories?: string[];
 
   // Detail-page-only fields (product listing/rail cards ignore these). Populated for
   // products that have real detail content; other products fall back to a simple view.

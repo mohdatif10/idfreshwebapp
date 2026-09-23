@@ -4,12 +4,11 @@ export interface TransparenSeeExpert {
   photo?: string;
 }
 
-// Real content supplied by the user (2026-09-23). Chitwan Garg has no photo in
-// the source files — shown without one rather than guessing/reusing another.
+// Real content supplied by the user (2026-09-23).
 export const TRANSPARENSEE_YOUTUBE_URL = "https://www.youtube.com/watch?v=AqzOgFKOkBU&t=3s";
 
 export const TRANSPARENSEE_EXPERTS: TransparenSeeExpert[] = [
-  { name: "Chitwan Garg", title: "Nutrition Coach" },
+  { name: "Chitwan Garg", title: "Nutrition Coach", photo: "/brand/transparensee/chitwan-garg.png" },
   {
     name: "Leema Mahajan",
     title: "Nutritionist, Hormone Health & Weight Loss Specialist",
