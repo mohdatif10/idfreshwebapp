@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MapPin, Send } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -26,7 +27,10 @@ export default async function CareersPage() {
           <p className="mt-4 text-cream/80">
             At iD Fresh Food, we are passionate about the work that we do. Every product that we
             make is made with love, to give our customers wholesome, flavourful Indian food
-            without the hassle of making it from scratch themselves.
+            without the hassle of making it from scratch themselves.{" "}
+            <Link href="/corporate/about-us" className="underline underline-offset-2 hover:text-cream">
+              Find out more about us here.
+            </Link>
           </p>
           <p className="mt-3 text-cream/80">
             We believe in agility, transparency, and rigorous discipline, both in and out of the
