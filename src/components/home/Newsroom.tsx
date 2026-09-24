@@ -70,7 +70,7 @@ export function Newsroom({ posts }: { posts: NewsPost[] }) {
             />
           </Link>
           <div className="flex flex-col justify-center rounded-2xl bg-brand-500 p-4 text-cream sm:rounded-3xl sm:p-8">
-            <p className="font-heading text-3xl font-extrabold text-lime-300 sm:text-6xl">45+</p>
+            <p className="font-heading text-3xl font-extrabold text-lime-300 sm:text-6xl">45+ cities</p>
             <p className="mt-2 font-accent italic text-sm text-cream/90 sm:text-xl">waking up fresh to iD</p>
           </div>
           <Link

@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="bg-brand-700 pb-28 pt-14 text-cream md:pb-14">
       <Container>
-        <IdLogo markHeight={100} />
+        <IdLogo markHeight={100} tone="teal" showWordmark={false} />
 
         <div className="my-10 h-px w-full bg-cream/20" />
 

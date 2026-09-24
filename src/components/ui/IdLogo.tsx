@@ -11,8 +11,8 @@ const LOGO_SOURCES = {
     full: { src: "/brand/id-logo-full-white.png", width: 579, height: 757 },
   },
   teal: {
-    mark: { src: "/brand/id-logo-mark-teal.png", width: 579, height: 757 },
-    full: { src: "/brand/id-logo-full-teal.png", width: 579, height: 757 },
+    mark: { src: "/brand/id-logo-mark-teal.png", width: 915, height: 1080 },
+    full: { src: "/brand/id-logo-full-teal.png", width: 915, height: 1080 },
   },
 } as const;
 

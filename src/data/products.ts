@@ -14,6 +14,7 @@ export const PRODUCTS: Product[] = [
     emoji: "🥞",
     tone: "amber",
     image: "/brand/products/high-fibre-batter.png",
+    heroImage: "/brand/products/high-fibre-batter.png",
     category: "batter",
   },
   {

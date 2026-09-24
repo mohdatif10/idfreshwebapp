@@ -9,7 +9,10 @@ import { IdLogo } from "@/components/ui/IdLogo";
 import { CAREERS_NAV, PRIMARY_NAV } from "@/data/nav";
 import type { NavItem } from "@/lib/types";
 
-const DESKTOP_LINKS = PRIMARY_NAV.filter((item) => item.href !== "/");
+// Home used to be dropped here on the theory that the logo already covers
+// it — but a small logo mark doesn't read as clickable on its own, so it's
+// kept as an explicit nav item too.
+const DESKTOP_LINKS = PRIMARY_NAV;
 
 const ACTIVE_PILL_CLASS = "rounded-full bg-lime-400 px-4 py-1.5 text-brand-900";
 const INACTIVE_LINK_CLASS = "font-nav text-sm font-bold text-white transition-colors hover:text-lime-400";
@@ -79,8 +82,16 @@ export function Header() {
             empty background also opens search (handleSearchToggle above) —
             these three interactive groups stop that click from bubbling so
             they keep their own distinct actions instead of double-firing it. */}
-        <div onClick={(event) => event.stopPropagation()}>
-          <IdLogo markHeight={36} showWordmark={false} priority />
+        {/* Rendered twice at different sizes rather than one responsive size —
+            IdLogo pins width/height via inline style (see its own comment on
+            why), which a Tailwind breakpoint class can't override. The bigger
+            desktop mark also makes it read as clickable-back-to-home, not
+            just a static badge. */}
+        <div onClick={(event) => event.stopPropagation()} className="md:hidden">
+          <IdLogo markHeight={36} showWordmark={false} tone="teal" priority />
+        </div>
+        <div onClick={(event) => event.stopPropagation()} className="hidden md:block">
+          <IdLogo markHeight={52} showWordmark={false} tone="teal" priority />
         </div>
 
         {/* Desktop nav */}

@@ -1,10 +1,18 @@
 export interface VideoCampaign {
   title: string;
   description: string;
-  /** Absent for "Hungry For Literature" — the source doc's campaigns list ends right
-   * after it with no video link attached, unlike every other entry here. */
-  youtubeUrl?: string;
+  youtubeUrl: string;
 }
+
+// "iD in the spotlight" is the page's own hero/intro, not one of the campaign
+// cards below — it gets its own section on the page instead of sitting in the
+// grid a second time.
+export const SPOTLIGHT_VIDEO = {
+  title: "iD in the spotlight",
+  description:
+    "The best meals are those #MadeWithLove, with premium ingredients and without preservatives. Bring home love with India's No.1 Idli-Dosa Batter.",
+  youtubeUrl: "https://www.youtube.com/watch?v=XsXQsBpDr7c",
+};
 
 export interface PressMention {
   title: string;
@@ -19,118 +27,110 @@ export interface Award {
   description: string;
 }
 
-// Real content supplied by the user (2026-09-23) for the /corporate/media page.
+// Real content supplied by the user (2026-09-23, corrected 2026-09-24 against a
+// newer version of the source doc — "Campaigns we cooked up" turned out to be
+// a section header with no video of its own, which shifted every URL below it
+// forward by one card versus the first pass at this file).
 export const VIDEO_CAMPAIGNS: VideoCampaign[] = [
-  {
-    title: "iD in the spotlight",
-    description:
-      "The best meals are those #MadeWithLove, with premium ingredients and without preservatives. Bring home love with India's No.1 Idli-Dosa Batter.",
-    youtubeUrl: "https://www.youtube.com/watch?v=XsXQsBpDr7c",
-  },
-  {
-    title: "Campaigns we cooked up",
-    description:
-      "We take the opportunity to celebrate every occasion with a home-made feast and share the joy with you through media.",
-    youtubeUrl: "https://www.youtube.com/watch?v=aglMtj_VQVQ&t=1s",
-  },
   {
     title: "iD Parota Yum Up Anything",
     description:
       "iD parota/paratha se chutakiyon mein banayein Svaadishth khaana. Bilkul tajaa, bina preservatives aur dher saara pyar. YUM UP ANYTHINHG!",
-    youtubeUrl: "https://www.youtube.com/watch?v=cri7iLoBlg0",
+    youtubeUrl: "https://www.youtube.com/watch?v=aglMtj_VQVQ&t=1s",
   },
   {
     title: "iD presents Little Big Heroes",
     description:
       "On Children's Day, iD shines a spotlight on the little people in our homes, who've quietly been doing big new things.",
-    youtubeUrl: "https://www.youtube.com/watch?v=SKB-mheQpZY",
+    youtubeUrl: "https://www.youtube.com/watch?v=cri7iLoBlg0",
   },
   {
     title: "iD Factory Live with PC Musthafa, CEO iD Fresh Food",
     description:
       "A tour of our grand home kitchen, where we take the finest ingredients to be washed, soaked, ground, and mixed to create the batter you love so much.",
-    youtubeUrl: "https://www.youtube.com/watch?v=CmUi7vqp4d8",
+    youtubeUrl: "https://www.youtube.com/watch?v=SKB-mheQpZY",
   },
   {
     title: "Khaana Khaaya 3 - Mother's Day",
     description:
       "Mother's Day is not just on 10th May. It's today and every other day. #ShareTheLove and #ShowYouCare with the same love & affection as that of a mother. #KhaanaKhaaya #KhaanaKhaaya2020",
-    youtubeUrl: "https://www.youtube.com/watch?v=zYY1kJCOXW0",
+    youtubeUrl: "https://www.youtube.com/watch?v=CmUi7vqp4d8",
   },
   {
     title: "iD Smart Sip Tender Coconut",
     description:
       "You may not know what life has in store for you, but with iD Smart Sip Tender Coconut, you'll always know exactly what you're getting. Each coconut tells you how much pulp and water is in there, and even how sweet it is.",
-    youtubeUrl: "https://www.youtube.com/watch?v=qcbxuEBHeF4",
+    youtubeUrl: "https://www.youtube.com/watch?v=zYY1kJCOXW0",
   },
   {
     title: "iD Grated Coconut In A Coconut",
     description:
       "We've taken one of nature's freshest foods and kept it fresh, naturally! Presenting iD Grated Coconut in a Coconut. It's Nature's Own Packaging.",
-    youtubeUrl: "https://www.youtube.com/watch?v=TeBJ-k1tqJo&t=5s",
+    youtubeUrl: "https://www.youtube.com/watch?v=qcbxuEBHeF4",
   },
   {
     title: "Their Love Mixed With Ours",
     description: "She's always there to listen. All you have to do is talk to her. Even better, over a cup of filter coffee.",
-    youtubeUrl: "https://www.youtube.com/watch?v=69BfdBD427I",
+    youtubeUrl: "https://www.youtube.com/watch?v=TeBJ-k1tqJo&t=5s",
   },
   {
     title: "Their Love Mixed With Ours",
     description: "There's comfort in every cup. So make every bittersweet goodbye a little bit sweeter.",
-    youtubeUrl: "https://www.youtube.com/watch?v=rbvnpzza7Dw",
+    youtubeUrl: "https://www.youtube.com/watch?v=69BfdBD427I",
   },
   {
     title: "Their Love Mixed With Ours",
     description:
       "No matter how old you get, you'll always be the little one in your parent's eyes. So make sure you share the love with your parents over some delicious Filter Coffee.",
-    youtubeUrl: "https://www.youtube.com/watch?v=Jc0AcuXJgnc",
+    youtubeUrl: "https://www.youtube.com/watch?v=rbvnpzza7Dw",
   },
   {
     title: "World Idly Day",
     description:
       "Folklore is at the heart of tradition and culture, and a little fiction goes a long way in entertaining people. Communities are built on tradition and culture. We took this understanding and retold the story of the origin of Idly to celebrate the spirit of World Idly Day.",
-    youtubeUrl: "https://www.youtube.com/watch?v=gGbDnNdtJuo",
+    youtubeUrl: "https://www.youtube.com/watch?v=Jc0AcuXJgnc",
   },
   {
     title: "Unite India",
     description:
       "What's the one thing that truly has the power to unite people across all differences? Food, of course! We decided to encourage people to open their hearts and homes to their neighbours, friends and fellow countrymen. All it took was a homecooked meal and true patriotic spirit to turn Independence Day 2018 into a real celebration.",
-    youtubeUrl: "https://www.youtube.com/watch?v=gXh6qI4tJZ4",
+    youtubeUrl: "https://www.youtube.com/watch?v=gGbDnNdtJuo",
   },
   {
     title: "Meet Your Neighbour",
     description:
       "Most of us lead such busy lives, our neighbours tend to become just door numbers or nameplates. We decided to make a difference and ensure a more tightly-knit community. So we asked people to throw their hearts and doors open to new friends over a home-cooked meal we provided - free of cost!",
-    youtubeUrl: "https://www.youtube.com/watch?v=ZAUmhIWmcjM",
+    youtubeUrl: "https://www.youtube.com/watch?v=gXh6qI4tJZ4",
   },
   {
     title: "Khaana Khaaya 2",
     description:
       "A mother's love is so strong, pure and irreplaceable. Every little thing she does makes a lot of difference in our lives. In fact, this Mother's Day, we simply couldn't resist asking our mothers once again - Maa, Khaana Khaaya?",
-    youtubeUrl: "https://www.youtube.com/watch?v=rDIvAFIsCk4",
+    youtubeUrl: "https://www.youtube.com/watch?v=ZAUmhIWmcjM",
   },
   {
     title: "#KhaanaKhaaya on Mother's Day",
     description:
       "Can two words hold a thousand emotions? The words “Khaana Khaaya” sure can. They indicate a mother's concern, love and worry all at once. So, this Mother's Day, we turned the tables and asked mothers, “Khaana Khaaya?”",
-    youtubeUrl: "https://www.youtube.com/watch?v=qVPReTYAlkE",
+    youtubeUrl: "https://www.youtube.com/watch?v=rDIvAFIsCk4",
   },
   {
     title: "Taking the #iDPledge on Independence Day",
     description:
       "Not all sacrifices make the news. On independence day, we celebrated our little heroes whose sacrifices otherwise go unnoticed. With the DIAV, we helped children of army martyrs get a little more help towards their education. We also got a lot of help from everyone who took the #iDPledge to do more and bring the little heroes' dreams to life.",
-    youtubeUrl: "https://www.youtube.com/watch?v=eUqZCPPLSZI",
+    youtubeUrl: "https://www.youtube.com/watch?v=qVPReTYAlkE",
   },
   {
     title: "iD Trust Shop",
     description:
       "Picture coming across a fridge full of iD products. It's simply standing unguarded in your locality or workplace. The catch? None. Take what you want and pay what you have or come back later and pay the full amount. These fridges ran entirely on trust and nothing else. Because we believe trust works both ways.",
-    youtubeUrl: "https://www.youtube.com/watch?v=AY1Vv8x_KUc",
+    youtubeUrl: "https://www.youtube.com/watch?v=eUqZCPPLSZI",
   },
   {
     title: "Hungry For Literature",
     description:
       "We were the official food sponsors of the Times Lit Fest 2017 that was held in Bangalore. Our stall fed the hungry literati as we served up crisp dosas and the softest idlis and parotas. The end of the fest saw all the visitors full of food and smiles.",
+    youtubeUrl: "https://www.youtube.com/watch?v=AY1Vv8x_KUc",
   },
 ];
 

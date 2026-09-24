@@ -100,9 +100,7 @@ export const STORY_MILESTONES: StoryMilestone[] = [
     title: "Organic Range & US launch",
     description:
       "In 2019, with the launch of the Organic Range, iD made a move towards a sustainable goal. The crop used in making the Organic Range is sourced responsibly and grown in a chemical-free way. iD also made an overseas visit to the United States of America by launching Filter Coffee there.",
-    // No timeline photo supplied for this year yet — every other entry has a
-    // real photo at /brand/misc/timeline/<year>.jpg; add 2019.jpg when available
-    // rather than pointing at a file that doesn't exist.
+    image: "/brand/misc/timeline/2019.jpg",
   },
   {
     year: 2020,

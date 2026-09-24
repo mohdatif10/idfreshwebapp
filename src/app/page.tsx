@@ -6,15 +6,10 @@ import { OurStory } from "@/components/home/OurStory";
 import { ProductShowcase } from "@/components/home/ProductShowcase";
 import { PromiseBanner } from "@/components/home/PromiseBanner";
 import { getNewsPosts } from "@/lib/services/news";
-import { getFeaturedProducts } from "@/lib/services/products";
 import { getTrendingRecipes } from "@/lib/services/recipes";
 
 export default async function Home() {
-  const [recipes, products, news] = await Promise.all([
-    getTrendingRecipes(),
-    getFeaturedProducts(),
-    getNewsPosts(),
-  ]);
+  const [recipes, news] = await Promise.all([getTrendingRecipes(), getNewsPosts()]);
 
   return (
     <>
@@ -22,7 +17,7 @@ export default async function Home() {
       <CreatorCollective />
       <PromiseBanner />
       <OurStory />
-      <ProductShowcase products={products.slice(0, 12)} />
+      <ProductShowcase />
       <Newsroom posts={news} />
       <ComplaintFeedbackFab />
     </>
