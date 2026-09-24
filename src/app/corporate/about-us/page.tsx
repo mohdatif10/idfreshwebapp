@@ -53,7 +53,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-3xl text-left">
+          <div className="mx-auto mt-12 max-w-3xl text-left lg:max-w-5xl">
             <StoryTimelineSlider />
           </div>
         </Container>

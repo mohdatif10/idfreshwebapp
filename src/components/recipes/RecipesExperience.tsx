@@ -32,8 +32,11 @@ export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
   useEffect(() => {
     const q = searchParams.get("q");
     if (q) {
-      setQuery(q);
-      document.getElementById("all-recipes")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const id = setTimeout(() => {
+        setQuery(q);
+        document.getElementById("all-recipes")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 0);
+      return () => clearTimeout(id);
     }
   }, [searchParams]);
 

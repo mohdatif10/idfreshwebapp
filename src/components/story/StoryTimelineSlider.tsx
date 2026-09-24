@@ -70,12 +70,12 @@ export function StoryTimelineSlider({ showReadMoreLink = false }: StoryTimelineS
 
   return (
     <>
-      <h2 className="mt-2 min-h-[5rem] font-heading text-4xl font-extrabold leading-tight text-brand-900 sm:min-h-[6.5rem] sm:text-5xl">
+      <h2 className="mt-2 min-h-[5.5rem] font-heading text-4xl font-extrabold leading-tight text-brand-900 sm:min-h-[7rem] sm:text-5xl">
         {activeMilestone.title}
       </h2>
       <p
-        className={`mt-5 min-h-[5.25rem] text-lg text-inkgray ${
-          showReadMoreLink && !expanded ? "line-clamp-3" : ""
+        className={`mt-5 text-lg text-inkgray ${
+          showReadMoreLink && !expanded ? "line-clamp-3 min-h-[5.25rem]" : "min-h-[10rem] sm:min-h-[7.5rem]"
         }`}
       >
         {activeMilestone.description}
@@ -130,16 +130,19 @@ export function StoryTimelineSlider({ showReadMoreLink = false }: StoryTimelineS
           aria-label="Story timeline year"
           className="mt-3 h-3 w-full cursor-pointer appearance-none rounded-full
             [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:cursor-pointer
-            [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2
-            [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-brand-600
-            [&::-moz-range-thumb]:shadow-md
+            [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-[3px]
+            [&::-moz-range-thumb]:border-teal-600 [&::-moz-range-thumb]:bg-white
+            [&::-moz-range-thumb]:shadow-lg
             [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6
             [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none
-            [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-2
-            [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-brand-600
-            [&::-webkit-slider-thumb]:shadow-md"
+            [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-[3px]
+            [&::-webkit-slider-thumb]:border-teal-600 [&::-webkit-slider-thumb]:bg-white
+            [&::-webkit-slider-thumb]:shadow-lg"
           style={{
-            background: `linear-gradient(to right, var(--color-teal-500) ${fillPercent}%, var(--color-sand) ${fillPercent}%)`,
+            // teal-100, not sand — sand is this exact same color as the About
+            // Us page's own section background, so the unfilled remainder was
+            // invisible there (looked like the bar just stopped at the thumb).
+            background: `linear-gradient(to right, var(--color-teal-500) ${fillPercent}%, var(--color-teal-100) ${fillPercent}%)`,
           }}
         />
         <div className="mt-2 flex items-center justify-between font-mono text-xs font-semibold text-brand-700/70">

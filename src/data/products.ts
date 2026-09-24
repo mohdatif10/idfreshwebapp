@@ -326,8 +326,8 @@ export const PRODUCTS: Product[] = [
     emoji: "☕",
     tone: "amber",
     category: "coffee",
-    image: "/brand/products/filter-coffee-bold-hero.jpg",
-    heroImage: "/brand/products/filter-coffee-bold-hero.jpg",
+    image: "/brand/products/filter-coffee-bold-hero.png",
+    heroImage: "/brand/products/filter-coffee-bold-hero.png",
     tagline: "Restaurant coffee at home",
     longDescription:
       "Exquisite filter coffee with an alluring aroma. Optimal chicory in the blend lends it a syrupy mouthfeel and that smooth yet strong taste you love. Snip open a pack, pour, add a tail of hot milk and your favourite coffee is ready — instantly.",
@@ -387,8 +387,8 @@ export const PRODUCTS: Product[] = [
     emoji: "☕",
     tone: "teal",
     category: "coffee",
-    image: "/brand/products/filter-coffee-strong-hero.jpg",
-    heroImage: "/brand/products/filter-coffee-strong-hero.jpg",
+    image: "/brand/products/filter-coffee-strong-hero.png",
+    heroImage: "/brand/products/filter-coffee-strong-hero.png",
     tagline: "Restaurant coffee at home",
     longDescription:
       "A captivating aroma invites you to a lush, strong taste experience with chicory adding a teasing hint of bitterness. Perfect filter coffee in minutes — snip open a pack, pour, add a tail of hot milk and enjoy.",
@@ -812,8 +812,8 @@ export const PRODUCTS: Product[] = [
     emoji: "🫓",
     tone: "amber",
     category: "chapati",
-    image: "/brand/products/chilled-chapati-6pc-hero.jpg",
-    heroImage: "/brand/products/chilled-chapati-6pc-hero.jpg",
+    image: "/brand/products/chilled-chapati-6pc-hero.png",
+    heroImage: "/brand/products/chilled-chapati-6pc-hero.png",
     tagline: "Wholesome, fibre-rich goodness!",
     sizes: ["6 pieces", "10 pieces"],
     longDescription:
@@ -978,10 +978,8 @@ export const PRODUCTS: Product[] = [
     emoji: "🥥",
     tone: "moss",
     category: "frozen-fruit-pulp",
-    // No individual pack photography was supplied for this flavour — using the
-    // shared 4-flavour group shot until a dedicated Tender Coconut photo exists.
-    image: "/brand/products/frozen-fruit-pulp-hero.png",
-    heroImage: "/brand/products/frozen-fruit-pulp-hero.png",
+    image: "/brand/products/frozen-fruit-pulp-tender-coconut-hero.png",
+    heroImage: "/brand/products/frozen-fruit-pulp-tender-coconut-hero.png",
     tagline: "This pulp is no fiction. This pulp is real.",
     longDescription:
       "Real fruit blended with love and made available in a freshly frozen form. If you love the flavour of tender coconut in your smoothies, milkshakes, or desserts, then this one's for you. Frozen tender coconut pulp with absolutely no preservatives. So go ahead, add a bit of fruit, and make everything taste better!",
@@ -1013,8 +1011,8 @@ export const PRODUCTS: Product[] = [
     emoji: "🍍",
     tone: "lime",
     category: "frozen-fruit-pulp",
-    image: "/brand/products/frozen-fruit-pulp-hero.png",
-    heroImage: "/brand/products/frozen-fruit-pulp-hero.png",
+    image: "/brand/products/frozen-fruit-pulp-pineapple-hero.png",
+    heroImage: "/brand/products/frozen-fruit-pulp-pineapple-hero.png",
     tagline: "This pulp is no fiction. This pulp is real.",
     longDescription:
       "Real fruit blended with love and made available in a freshly frozen form. If you love the flavour of pineapple in your smoothies, milkshakes, or desserts, then this one's for you. Frozen pineapple pulp with absolutely no preservatives. So go ahead, add a bit of fruit, and make everything taste better!",
@@ -1044,8 +1042,8 @@ export const PRODUCTS: Product[] = [
     emoji: "🍈",
     tone: "clay",
     category: "frozen-fruit-pulp",
-    image: "/brand/products/frozen-fruit-pulp-hero.png",
-    heroImage: "/brand/products/frozen-fruit-pulp-hero.png",
+    image: "/brand/products/frozen-fruit-pulp-chickoo-hero.png",
+    heroImage: "/brand/products/frozen-fruit-pulp-chickoo-hero.png",
     tagline: "This pulp is no fiction. This pulp is real.",
     longDescription:
       "Real fruit blended with love and made available in a freshly frozen form. Love chickoos? Make ice-creams, shakes and smoothies with this wonder-fruit, in an instant! Frozen chickoo pulp with absolutely no preservatives.",
