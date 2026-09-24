@@ -37,6 +37,8 @@ export interface CreatorPost {
   image?: string;
   /** Self-hosted video clip (mp4) from /public/brand — autoplays muted+looped when scrolled into view. Requires a licensed/downloaded copy of the clip; never a live Instagram embed. */
   video?: string;
+  /** Full-length original (with audio) — played in VideoLightbox on click instead of looping the short muted `video` teaser bigger. Falls back to `video` when absent (e.g. older creator posts this wasn't sourced for). */
+  fullVideo?: string;
   /** Optional secondary link to the creator's Instagram profile/post — opens in a new tab, never the card's primary click target (keeps viewers on-site). */
   instagramUrl?: string;
 }

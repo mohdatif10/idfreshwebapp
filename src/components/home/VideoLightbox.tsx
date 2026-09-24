@@ -60,7 +60,7 @@ export function VideoLightbox({ post, onClose }: { post: CreatorPost | null; onC
             from frame zero instead of resuming whatever the last post left behind */}
         <video
           key={post.id}
-          src={post.video}
+          src={post.fullVideo ?? post.video}
           poster={post.image}
           controls
           autoPlay

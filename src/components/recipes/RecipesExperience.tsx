@@ -7,12 +7,14 @@ import { Search, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { RecipeCard } from "@/components/recipes/RecipeCard";
 import { RecipeRail } from "@/components/recipes/RecipeRail";
+import { VideoRail } from "@/components/recipes/VideoRail";
+import { VideoLightbox } from "@/components/home/VideoLightbox";
 import { RECIPE_CATEGORIES } from "@/data/recipe-categories";
-import type { Recipe } from "@/lib/types";
+import { CAMPAIGN_VIDEOS, CREATOR_RECIPE_VIDEOS, TRENDING_RECIPE_VIDEOS } from "@/data/recipe-videos";
+import type { CreatorPost, Recipe } from "@/lib/types";
 
 // Curated shelves for the landing page, hand-picked from the full catalogue
 // until real per-shelf curation data exists.
-const RELATED_SLUGS = ["mysore-masala-dosa", "multigrain-masala-dosa", "mixed-vegetable-masala-dosa"];
 const TRENDING_SLUGS = ["keto-dosa", "spicy-tava-idli", "tawa-masala-idli"];
 const FUSION_SLUGS = ["pizza-dosa", "idli-fry-manchurian", "paneer-chilli-dosa"];
 
@@ -26,6 +28,7 @@ export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState(RECIPE_CATEGORIES[0].label);
   const [query, setQuery] = useState(() => searchParams.get("q") ?? "");
+  const [activeVideo, setActiveVideo] = useState<CreatorPost | null>(null);
 
   // A header search (from any page) lands here via ?q= — sync it in whenever
   // it changes, including repeat searches while already on this page.
@@ -40,7 +43,6 @@ export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
     }
   }, [searchParams]);
 
-  const related = useMemo(() => pickBySlug(recipes, RELATED_SLUGS), [recipes]);
   const trending = useMemo(() => pickBySlug(recipes, TRENDING_SLUGS), [recipes]);
   const fusion = useMemo(() => pickBySlug(recipes, FUSION_SLUGS), [recipes]);
 
@@ -126,7 +128,10 @@ export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
       </section>
 
       <Container className="flex flex-col gap-12 py-10 sm:gap-14 sm:py-14">
-        <RecipeRail title="Related Recipes" recipes={related} viewAllHref="#all-recipes" />
+        <VideoRail title="Campaign" posts={CAMPAIGN_VIDEOS} onOpen={setActiveVideo} />
+        <VideoRail title="Creator Recipe" posts={CREATOR_RECIPE_VIDEOS} onOpen={setActiveVideo} />
+        <VideoRail title="Trending Recipe" posts={TRENDING_RECIPE_VIDEOS} onOpen={setActiveVideo} />
+
         <RecipeRail title="Trending Recipes" recipes={trending} viewAllHref="#all-recipes" />
         <RecipeRail title="Fusion Recipes" recipes={fusion} viewAllHref="#all-recipes" />
 
@@ -150,6 +155,8 @@ export function RecipesExperience({ recipes }: { recipes: Recipe[] }) {
           )}
         </div>
       </Container>
+
+      <VideoLightbox post={activeVideo} onClose={() => setActiveVideo(null)} />
     </>
   );
 }
