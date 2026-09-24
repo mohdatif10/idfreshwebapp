@@ -98,28 +98,46 @@ export function ProductShowcase() {
                 const offset = i - trackIndex;
                 const { scale, opacity } = slotStyle(offset);
                 const isActive = offset === 0;
+                const imageEl = (
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={item.image}
+                      alt={isActive ? item.name : ""}
+                      fill
+                      sizes="14rem"
+                      className="object-contain drop-shadow-xl"
+                      priority={isActive}
+                    />
+                  </div>
+                );
                 return (
                   <div
                     key={`${item.href}-${i}`}
                     className="flex shrink-0 items-center justify-center"
                     style={{ width: SLOT_WIDTH }}
                   >
-                    <Link
-                      href={item.href}
-                      className="pointer-events-auto relative h-32 w-32 transition-transform duration-500 ease-out sm:h-56 sm:w-56"
-                      style={{ transform: `scale(${scale})`, opacity }}
-                      tabIndex={isActive ? 0 : -1}
-                      aria-hidden={!isActive}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={isActive ? item.name : ""}
-                        fill
-                        sizes="14rem"
-                        className="object-contain drop-shadow-xl"
-                        priority={isActive}
-                      />
-                    </Link>
+                    {isActive ? (
+                      <Link
+                        href={item.href}
+                        className="pointer-events-auto relative h-32 w-32 transition-transform duration-500 ease-out sm:h-56 sm:w-56"
+                        style={{ transform: `scale(${scale})`, opacity }}
+                      >
+                        {imageEl}
+                      </Link>
+                    ) : (
+                      // Not the focused product yet — clicking it glides the
+                      // carousel over to make it the focus, rather than
+                      // jumping straight to its product page.
+                      <button
+                        type="button"
+                        onClick={() => setTrackIndex(i)}
+                        aria-label={`Show ${item.name}`}
+                        className="pointer-events-auto relative h-32 w-32 transition-transform duration-500 ease-out sm:h-56 sm:w-56"
+                        style={{ transform: `scale(${scale})`, opacity }}
+                      >
+                        {imageEl}
+                      </button>
+                    )}
                   </div>
                 );
               })}

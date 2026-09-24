@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ABOUT_US_INTRO } from "@/data/story-milestones";
 import { DNA_INTRO, DNA_PILLARS, EMPLOYEE_STORIES, LEADERSHIP_PRINCIPLES } from "@/data/dna";
 import { StoryTimelineSlider } from "@/components/story/StoryTimelineSlider";
+import { DnaPillarsGrid } from "@/components/corporate/DnaPillarsGrid";
 
 export const metadata: Metadata = {
   title: "About Us & iD DNA | iD Fresh",
@@ -68,38 +69,7 @@ export default function AboutUsPage() {
         </Container>
 
         <Container className="mt-10 max-w-4xl">
-          <div className="grid gap-5 sm:grid-cols-2">
-            {DNA_PILLARS.map((pillar) => (
-              <div key={pillar.number} className="rounded-2xl border border-brand-100 p-6">
-                <span className="font-mono text-sm font-bold text-lime-500">{pillar.number}</span>
-                <h3 className="mt-1 font-heading text-lg font-bold text-brand-900">{pillar.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-inkgray">{pillar.description}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-
-        <Container className="mt-10 max-w-4xl">
-          <div className="grid grid-cols-2 gap-5">
-            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
-              <Image
-                src="/brand/corporate/dna/happy-workplace.jpg"
-                alt="A happy iD workplace"
-                fill
-                sizes="(min-width: 640px) 20rem, 45vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
-              <Image
-                src="/brand/corporate/dna/table-tennis.jpg"
-                alt="Table tennis at the iD office"
-                fill
-                sizes="(min-width: 640px) 20rem, 45vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
+          <DnaPillarsGrid pillars={DNA_PILLARS} />
         </Container>
       </section>
 

@@ -2,6 +2,10 @@ export interface DnaPillar {
   number: string;
   title: string;
   description: string;
+  /** Teaser card photo, shown on the pillar card itself and again at the top of its "Read more" popup. */
+  image: string;
+  /** Full popup body, verbatim from the source doc's "POP UP CONTENT" section for this pillar — more detailed than the card's own teaser `description`. */
+  popupBody: string[];
 }
 
 export interface EmployeeStory {
@@ -20,26 +24,48 @@ export const DNA_PILLARS: DnaPillar[] = [
   {
     number: "01",
     title: "One Workspace, Million Opportunities",
-    description:
-      "At iD, opportunities aren't just given - they're created. Your ambitions are nurtured, your skills are sharpened, and your potential is limitless. Our Higher Education Policy empowers you to invest in your learning journey, our Talent Management Architecture lets you explore roles across functions and geographies, and our capability-building academy, iRISE, equips you to lead, innovate, and excel.",
+    description: "At iD, opportunities aren't just given - they're created. And the next one is waiting for you.",
+    image: "/brand/corporate/dna/pillars/one-workspace.jpg",
+    popupBody: [
+      "Your ambitions are nurtured, your skills are sharpened, and your potential is limitless. Whether you're looking to climb the corporate ladder, pivot into new roles, or simply refine your expertise, we provide the platform to make it happen.",
+      "Our Higher Education Policy empowers you to invest in your learning journey, ensuring that knowledge is never a barrier to success. With our Talent Management Architecture, you can explore career opportunities across functions and geographies, expanding your horizons both vertically and horizontally.",
+      "Beyond structured education, we offer hands-on experiences through our capability-building academy, iRISE, designed to equip you with the skills to lead, innovate, and excel.",
+    ],
   },
   {
     number: "02",
     title: "Where Every Perspective Counts",
-    description:
-      "At iD, we don't just embrace diversity - we elevate it into a force of boundless innovation. iD Scholars offers scholarships to employees' children, WoW (World of Women) champions gender diversity and allyship, and our inclusive hiring practices welcome talent from all walks of life, including differently-abled individuals, returning mothers, and professionals re-entering the workforce.",
+    description: "At iD, we don't just embrace diversity - we elevate it into a force of boundless innovation.",
+    image: "/brand/corporate/dna/pillars/every-perspective.png",
+    popupBody: [
+      "At iD, we don't just open doors – we build bridges. We don't just hear voices – we amplify them. This is where ideas thrive, where every perspective matters. Here, differences aren't just welcomed; they are celebrated as the heartbeat of our success.",
+      "Our commitment to inclusivity is not just a promise – it's a living, breathing reality reflected in every initiative we drive. iD Scholars empowers the next generation by offering scholarships to the children of our employees, shaping futures with opportunity and hope. WoW (World of Women), our dynamic employee resource group, is a vibrant space where individuals connect over shared interests, champion gender diversity, and foster allyship that strengthens our culture.",
+      "Our inclusive hiring practices go beyond checkboxes – we actively welcome talent from all walks of life, ensuring that differently-abled individuals, returning mothers, and professionals re-entering the workforce find not just jobs, but belonging.",
+    ],
   },
   {
     number: "03",
     title: "From Wellness to Wealth, We've Got You Covered",
     description:
-      "At iD, we don't just offer benefits - we offer choices. Our employee insurance programs provide extensive health coverage with top-up options, our wealth creation policy lets employees grow wealth alongside the company, our Flexi Benefits build a compensation package suited to individual needs, and our Mind Mingle sessions keep employees informed on technology, financial planning, health and safety.",
+      "At iD, we don't just offer benefits - we offer choices. Whether it's wellness or wealth, we've got every aspect of your journey covered.",
+    image: "/brand/corporate/dna/pillars/wellness-to-wealth.jpg",
+    popupBody: [
+      "Your health, well-being, and financial security are at the heart of everything we do. We believe that when you feel your best – physically, mentally, and financially – you can thrive both in and out of work. That's why we offer a thoughtfully designed benefits package that supports you at every stage of life.",
+      "Our employee insurance programs provide extensive health coverage with a wide range of top-up options at incredibly low rates, giving you and your family the protection you deserve. We also believe in sharing success – our prolific wealth creation policy gives you the chance to grow wealth alongside the company.",
+      "And when it comes to flexibility, we deliver. Our Flexi Benefits cover everything and give you the flexibility to design your compensation package best suited to your needs.",
+      "Our Mind Mingle sessions on technology, financial planning, health, and safety ensure that you stay informed, empowered, and ready to navigate both professional and personal challenges.",
+    ],
   },
   {
     number: "04",
     title: "Best Work of Your Life",
-    description:
-      "At iD, you don't just contribute - you create. We want every employee to feel challenged, inspired, and empowered to do the best work of their life. Our culture is built on transparency, support, and celebration - wins, big or small, are recognised with shoutouts, awards, and recognition.",
+    description: "At iD, you don't just contribute – you create.",
+    image: "/brand/corporate/dna/pillars/best-work.png",
+    popupBody: [
+      "We want every employee to feel challenged, inspired, and empowered. At iD, you'll have the chance to do the best work of your life – growing, innovating, and leaving a lasting impact.",
+      "Every challenge is an opportunity, every idea a stepping stone to something bigger. Whether you're solving real-world problems or bringing your innovations to life, you don't just contribute – you create.",
+      "Our culture is built on transparency, support, and celebration. Wins—big or small—are never overlooked, with shoutouts, awards, and recognition ensuring every achievement gets the spotlight it deserves.",
+    ],
   },
 ];
 

@@ -10,9 +10,9 @@ import { STORY_MILESTONES, STORY_TIMELINE_END, STORY_TIMELINE_START } from "@/da
 const WHEEL_STEP_THRESHOLD = 100;
 
 interface StoryTimelineSliderProps {
-  /** Shows a "read the full story" link to /corporate/about-us under the copy —
-   * the home-page teaser needs it, the About Us page (which IS that full story)
-   * doesn't. */
+  /** Home-page teaser mode: clamps the description to 3 lines with a "read the
+   * full story" toggle that expands it in place. The About Us page (which IS
+   * the full story) passes false so its text is never clamped or hidden. */
   showReadMoreLink?: boolean;
 }
 
@@ -24,6 +24,7 @@ interface StoryTimelineSliderProps {
  */
 export function StoryTimelineSlider({ showReadMoreLink = false }: StoryTimelineSliderProps) {
   const [activeYear, setActiveYear] = useState(STORY_TIMELINE_START);
+  const [expanded, setExpanded] = useState(false);
   const sliderRef = useRef<HTMLInputElement>(null);
   const wheelAccumRef = useRef(0);
 
@@ -47,6 +48,7 @@ export function StoryTimelineSlider({ showReadMoreLink = false }: StoryTimelineS
         setActiveYear((year) =>
           Math.min(STORY_TIMELINE_END, Math.max(STORY_TIMELINE_START, year + direction))
         );
+        setExpanded(false);
         wheelAccumRef.current -= direction * WHEEL_STEP_THRESHOLD;
       }
     }
@@ -71,16 +73,21 @@ export function StoryTimelineSlider({ showReadMoreLink = false }: StoryTimelineS
       <h2 className="mt-2 min-h-[5rem] font-heading text-4xl font-extrabold leading-tight text-brand-900 sm:min-h-[6.5rem] sm:text-5xl">
         {activeMilestone.title}
       </h2>
-      <p className="mt-5 line-clamp-3 min-h-[5.25rem] text-lg text-inkgray">
+      <p
+        className={`mt-5 min-h-[5.25rem] text-lg text-inkgray ${
+          showReadMoreLink && !expanded ? "line-clamp-3" : ""
+        }`}
+      >
         {activeMilestone.description}
       </p>
       {showReadMoreLink && (
-        <a
-          href="/corporate/about-us"
+        <button
+          type="button"
+          onClick={() => setExpanded((prev) => !prev)}
           className="mt-1 inline-block font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-900"
         >
-          read the full story
-        </a>
+          {expanded ? "show less" : "read the full story"}
+        </button>
       )}
 
       {activeMilestone.image && (
@@ -116,7 +123,10 @@ export function StoryTimelineSlider({ showReadMoreLink = false }: StoryTimelineS
           max={STORY_TIMELINE_END}
           step={1}
           value={activeYear}
-          onChange={(event) => setActiveYear(Number(event.target.value))}
+          onChange={(event) => {
+            setActiveYear(Number(event.target.value));
+            setExpanded(false);
+          }}
           aria-label="Story timeline year"
           className="mt-3 h-3 w-full cursor-pointer appearance-none rounded-full
             [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:cursor-pointer

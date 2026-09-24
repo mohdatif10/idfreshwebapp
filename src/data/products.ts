@@ -6,18 +6,6 @@ import type { Product } from "@/lib/types";
 // (coffee line structure, frozen fruit pulp flavours, missing chapati photo, etc).
 export const PRODUCTS: Product[] = [
   {
-    id: "p1",
-    slug: "high-fibre-brown-rice-oats-batter",
-    name: "High Fibre Brown Rice & Oats Batter",
-    description: "30% of daily fibre in just 2 dosas. No soda, no preservatives.",
-    badge: "High fibre",
-    emoji: "🥞",
-    tone: "amber",
-    image: "/brand/products/high-fibre-batter.png",
-    heroImage: "/brand/products/high-fibre-batter.png",
-    category: "batter",
-  },
-  {
     id: "p2",
     slug: "idly-dosa-batter",
     name: "Idli & Dosa Batter",
@@ -107,6 +95,18 @@ export const PRODUCTS: Product[] = [
       },
     ],
     relatedProductSlugs: ["high-fibre-brown-rice-oats-batter", "rice-rava-batter", "organic-idly-dosa-batter"],
+  },
+  {
+    id: "p1",
+    slug: "high-fibre-brown-rice-oats-batter",
+    name: "High Fibre Brown Rice & Oats Batter",
+    description: "30% of daily fibre in just 2 dosas. No soda, no preservatives.",
+    badge: "High fibre",
+    emoji: "🥞",
+    tone: "amber",
+    image: "/brand/products/high-fibre-batter.png",
+    heroImage: "/brand/products/high-fibre-batter.png",
+    category: "batter",
   },
   {
     id: "p3",
@@ -532,8 +532,8 @@ export const PRODUCTS: Product[] = [
     emoji: "🌱",
     tone: "moss",
     category: "batter",
-    image: "/brand/products/organic-idly-dosa-batter-hero.jpg",
-    heroImage: "/brand/products/organic-idly-dosa-batter-hero.jpg",
+    image: "/brand/products/organic-idly-dosa-batter-hero.png",
+    heroImage: "/brand/products/organic-idly-dosa-batter-hero.png",
     tagline: "Organic isn't a claim. It's our way of life.",
     longDescription:
       "The farms that grow our grains. The warehouses that store them. The factories where we prepare our preservative-free food. They're all certified to be compliant with organic protocols. At iD, organic isn't a fancy claim. It's our way of life. And now, it's yours.",
